@@ -15,17 +15,17 @@
 		</commentGenerator>
 
 		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
-		<!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
 			connectionURL="jdbc:oracle:thin:localhost:1521:orcl.127.0.0.1" userId="YCGXSH"
 			password="YCGXSH">
 			<property name="remarksReporting" value="true"></property>
-		</jdbcConnection>-->
+		</jdbcConnection>
 		<!--oracle-->
-		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+		<!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
 						connectionURL="jdbc:oracle:thin:@172.16.254.161:1521/KFDB"
 						userId="YCGCE" password="YCGCE">
 			<property name="remarksReporting" value="true"></property>
-		</jdbcConnection>
+		</jdbcConnection>-->
 
 
 
