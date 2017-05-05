@@ -90,7 +90,7 @@ public class ContinueGenerate {
 			create(serviceImplTemp[0], serviceImplTemp[1], entity,generateTargetPath[1]+entity+serviceImplTemp[2]+".java");
 			create(controllerTemp[0], controllerTemp[1], entity,generateTargetPath[2]+entity+controllerTemp[2]+".java");
 			create(daoTemp[0], daoTemp[1], entity,generateTargetPath[3]+"I"+entity+daoTemp[2]+".java");
-			create(daoImplTemp[0], daoImplTemp[1], entity,generateTargetPath[4]+entity+daoImplTemp[2]+".xml");
+			create(daoImplTemp[0], daoImplTemp[1], entity,generateTargetPath[4]+"I"+entity+daoImplTemp[2]+".xml");
 		}
 	}
 }
