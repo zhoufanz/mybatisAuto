@@ -79,7 +79,11 @@ public class StringUtil {
 			File[] files=directoryFile.listFiles();
 			for (int i = 0; i < files.length; i++) {
 				String fileName=files[i].getName();
-				fileName=fileName.substring(0,fileName.lastIndexOf("Entity"));
+				int index=fileName.lastIndexOf("Entity");
+				if(index==-1){
+					throw new Exception("实体后缀必须为Entity");
+				}
+				fileName=fileName.substring(0,index);
 				//实体类
 				if (fileName.indexOf("Example")<0) {
 					classNames.add(fileName);

@@ -2,13 +2,15 @@ package util;
 
 
 
-import java.io.File;
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import util.FreeMakerUtil;
 import util.StringUtil;
+
+import static java.awt.SystemColor.info;
 
 
 public class ContinueGenerate {
@@ -24,7 +26,8 @@ public class ContinueGenerate {
 			"D:\\generate_mybatisXXXXXXXXXXXXX\\service\\impl\\",
 			"D:\\generate_mybatisXXXXXXXXXXXXX\\controller\\",
 			"D:\\generate_mybatisXXXXXXXXXXXXX\\dao\\",
-			"D:\\generate_mybatisXXXXXXXXXXXXX\\dao\\impl\\"
+			"D:\\generate_mybatisXXXXXXXXXXXXX\\dao\\impl\\",
+			"D:\\generate_mybatisXXXXXXXXXXXXX\\newEntityWithColumn\\"
 		};
 		for (int i = 0; i < generateTargetPath.length; i++) {
 			File file=new File(generateTargetPath[i]);
@@ -82,7 +85,7 @@ public class ContinueGenerate {
 		freeMakerUtil.generateFile(ftlPath, templateName, templateData, outFileFullPath);
 	}
 	
-	//基于已经生成的实体类继续生成service,serviceImpl,和controller
+	//基于已经生成的实体类继续生成service,serviceImpl,和controller dao
 	public static void continueGenerate(String entityPath) {
 		List<String> models=StringUtil.getDirectoryClassNameListString(entityPath);
 		for (String entity : models) {
@@ -92,5 +95,115 @@ public class ContinueGenerate {
 			create(daoTemp[0], daoTemp[1], entity,generateTargetPath[3]+"I"+entity+daoTemp[2]+".java");
 			create(daoImplTemp[0], daoImplTemp[1], entity,generateTargetPath[4]+"I"+entity+daoImplTemp[2]+".xml");
 		}
+	}
+	//基于已经生成的实体类继续生成 newEntityWithColumn
+	public static void continueGenerateNewEntity(String entityPath) {
+		File directoryFile=new File(entityPath);
+		try {
+			File[] files=directoryFile.listFiles();
+			for (int i = 0; i < files.length; i++) {
+				String fileName=files[i].getName();
+
+				//根据xml文件获取column
+				String prePath = files[i].getPath().substring(0, files[i].getPath().indexOf("entity"));
+				prePath = prePath + "dao\\" + fileName.substring(0,fileName.indexOf(".")) + "Mapper.xml";
+				Map<String,String> map=getColumnMapWithXml(prePath);
+
+				int index=fileName.lastIndexOf("Entity");
+				if(index==-1){
+					throw new Exception("实体后缀必须为Entity");
+				}
+
+				//处理file
+				File file = files[i];
+				BufferedReader bre= new BufferedReader(new FileReader(file));
+
+				StringBuilder sb = new StringBuilder();
+				String line=null;
+				while ((line = bre.readLine())!= null) {
+
+					//字段列
+					//从第二个空格截到;
+					// private Short blLockFlag;
+					if (line.indexOf("private ")!=-1){
+						//空格数量
+						int number=line.indexOf("private");
+
+						String copyLine=new String(line);
+						copyLine = copyLine.trim();
+						String filed=null;
+						try {
+							 filed = copyLine.substring(copyLine.indexOf(" ", "private ".length() + 2), copyLine.indexOf(";"));
+						} catch (Exception ex) {
+							System.out.println(line);
+						}
+						for(int j=0;j<number;j++){
+							sb.append(" ");
+						}
+						String column=map.get(filed.trim());
+
+						//根据xml文件获取column
+						sb.append("@Column("+column+")"+"\n");
+					}
+					sb.append(line + "\n");
+				}
+
+				//生成新文件
+				File newFile =new File(generateTargetPath[5]+"\\"+file.getName());
+				newFile.createNewFile();
+
+				FileWriter fileWriter =new FileWriter(newFile, true);
+				fileWriter.write(sb.toString());
+
+				fileWriter.flush();
+
+				fileWriter.close();
+				bre.close();
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static Map<String,String> getColumnMapWithXml(String path) throws IOException {
+		File file = new File(path);
+		BufferedReader bre = new BufferedReader(new FileReader(file));
+
+		StringBuilder sb = new StringBuilder();
+		String line = null;
+		boolean flag=false;
+		boolean first=true;
+		Map<String, String> map = new HashMap<>();
+		while ((line = bre.readLine()) != null) {
+			if(line.indexOf("resultMap")!=-1){
+				flag=true;
+				if (first){
+					first=false;
+					continue;
+				}else{
+					break;
+				}
+			}
+			if(line.indexOf("//resultMap")!=-1){
+				flag=false;
+				break;
+			}
+			if (flag){
+				try {
+					line = line.trim();
+					int begin =line.indexOf("\"")+1;
+					int end = line.indexOf("\"",begin);
+					String value = line.substring(begin, end);
+
+					line=line.substring(end+2+"property=".length()+1);
+					String key = line.substring(0, line.indexOf("\""));
+					map.put(key, "\""+value+"\"");
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
+				}
+			}
+		}
+		return map;
 	}
 }
