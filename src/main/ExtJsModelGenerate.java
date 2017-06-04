@@ -8,6 +8,22 @@ import java.util.List;
 
 /**
  * Created by zf11 on 2017-06-04.
+ * 入
+ *  /**
+ *  修改时间
+ *
+  private Date modifyTime;
+
+  //修改人
+  private String modifyUserCodeName;
+
+ 出
+ //修改时间
+ {name:'modifyTime',type:'string'},
+ //修改人
+ {name:'modifyUserCodeName',type:'string'},
+ *
+ *
  */
 public class ExtJsModelGenerate {
     public static void main(String[] args) {
