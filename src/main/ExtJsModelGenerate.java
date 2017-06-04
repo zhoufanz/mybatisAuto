@@ -51,7 +51,12 @@ public class ExtJsModelGenerate {
             String att=line.substring(line.indexOf("private"));
             String[] split = att.split(" ");
             att = split[2].trim();
-            att = "{name:'" + att + "',type:'string'},";
+
+            if(att.indexOf("Time")>=0){
+                att = "{name:'" + att + "',type:'string',convert: dateConvert},";
+            }else {
+                att = "{name:'" + att + "',type:'string'},";
+            }
 
             list.add(comment);
             list.add(att);
@@ -61,35 +66,25 @@ public class ExtJsModelGenerate {
         }
     }
     public static String init(){
-        String vo = "/**\n" +
+        String vo = " /**\n" +
                 "     * 主键\n" +
                 "     */\n" +
                 "    private String id;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 奖励单号\n" +
+                "     * 申请单号\n" +
                 "     */\n" +
-                "    private String prizeCode;\n" +
+                "    private String applicationCode;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 奖励名称\n" +
+                "     * 申请类型(MM_MDA.门店物料申请,MM_FGSA.分公司物料申请,MM_JL.物料奖励)\n" +
                 "     */\n" +
-                "    private String prizeName;\n" +
+                "    private String applicationType;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 奖励状态（MM_P_ZCZ.暂存中,MM_P_YTJ.已提交)\n" +
+                "     * 申请状态(MM_ZCZ.暂存中,MM_DFF.待发放,MM_YCX.已撤销,MM_YTH.已退回,MM_YTH.已退货,MM_YFH.已发放,MM_YQS.已签收)\n" +
                 "     */\n" +
-                "    private String prizeFlag;\n" +
-                "\n" +
-                "    /**\n" +
-                "     * 采购合计\n" +
-                "     */\n" +
-                "    private Double jlPurchTotal;\n" +
-                "\n" +
-                "    /**\n" +
-                "     * 销售合计\n" +
-                "     */\n" +
-                "    private Double jlProposeTotal;\n" +
+                "    private String applicationState;\n" +
                 "\n" +
                 "    /**\n" +
                 "     * 品类数量\n" +
@@ -102,24 +97,99 @@ public class ExtJsModelGenerate {
                 "    private Integer totalNumber;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 奖励部门数量\n" +
+                "     * 销售合计\n" +
                 "     */\n" +
-                "    private Integer prizeSiteCodeCount;\n" +
+                "    private Double proposeTotal;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 操作人(选择器)\n" +
+                "     * 采购合计\n" +
                 "     */\n" +
-                "    private String inputUserCode;\n" +
+                "    private Double purchTotal;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 操作时间\n" +
+                "     * 申请网点（部门）\n" +
                 "     */\n" +
-                "    private Date inputTime;\n" +
+                "    private String sqSiteCode;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 摘要\n" +
+                "     * 申请人(选择器)\n" +
                 "     */\n" +
-                "    private String prizeRemark;\n" +
+                "    private String sqUserCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 申请时间\n" +
+                "     */\n" +
+                "    private Date applicationTime;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 申请备注\n" +
+                "     */\n" +
+                "    private String applicationRemark;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 撤销人\n" +
+                "     */\n" +
+                "    private String cancelUserCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 撤销时间\n" +
+                "     */\n" +
+                "    private Date cancelTime;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 撤销原因\n" +
+                "     */\n" +
+                "    private String cancelRemark;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 退回人\n" +
+                "     */\n" +
+                "    private String backUserCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 退回时间\n" +
+                "     */\n" +
+                "    private Date backTime;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 退回原因\n" +
+                "     */\n" +
+                "    private String backRemark;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 发放人\n" +
+                "     */\n" +
+                "    private String provideUserCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 发放时间\n" +
+                "     */\n" +
+                "    private Date provideTime;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 运单号\n" +
+                "     */\n" +
+                "    private String billNum;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 是否含号段(0,否,1,是)\n" +
+                "     */\n" +
+                "    private Integer numFlag;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 物流公司\n" +
+                "     */\n" +
+                "    private String logCompany;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 录运单号人\n" +
+                "     */\n" +
+                "    private String billUserCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 录运单号时间\n" +
+                "     */\n" +
+                "    private Date billTime;\n" +
                 "\n" +
                 "    /**\n" +
                 "     * 创建人\n" +
@@ -140,19 +210,63 @@ public class ExtJsModelGenerate {
                 "     * 修改时间\n" +
                 "     */\n" +
                 "    private Date modifyTime;\n" +
+                "    /**\n" +
+                "     * 申请类型名称(MM_MDA.门店物料申请,MM_FGSA.分公司物料申请,MM_JL.物料奖励)\n" +
+                "     */\n" +
+                "    private String applicationTypeName;\n" +
+                "    /**\n" +
+                "     * 申请状态名称(MM_ZCZ.暂存中,MM_DFF.待发放,MM_YCX.已撤销,MM_YTH.已退回,MM_YTH.已退货,MM_YFH.已发放,MM_YQS.已签收)\n" +
+                "     */\n" +
+                "    private String applicationStateName;\n" +
                 "\n" +
-                "   //修改人\n" +
-                "    private String modifyUserCodeName;\n" +
-                "    //创建人\n" +
+                "    /**\n" +
+                "     * 申请人(选择器)\n" +
+                "     */\n" +
+                "    private String sqUserCodeName;\n" +
+                "    /**\n" +
+                "     * 撤销人名称\n" +
+                "     */\n" +
+                "    private String cancelUserCodeName;\n" +
+                "    /**\n" +
+                "     * 退回人名称\n" +
+                "     */\n" +
+                "    private String backUserCodeName;\n" +
+                "    /**\n" +
+                "     * 发放人名称\n" +
+                "     */\n" +
+                "    private String provideUserCodeName;\n" +
+                "    /**\n" +
+                "     * 录运单号人名称\n" +
+                "     */\n" +
+                "    private String billUserCodeName;\n" +
+                "    /**\n" +
+                "     * 创建人名称\n" +
+                "     */\n" +
                 "    private String createUserCodeName;\n" +
-                "    //操作人名称\n" +
-                "    private String inputUserCodeName;\n" +
-                "    //操作时间起\n" +
-                "    private Date inputTimeStart;\n" +
-                "    //操作时间止\n" +
-                "    private Date inputTimeEnd;\n" +
-                "    //奖励状态名称\n" +
-                "    private String prizeFlagName;";
+                "    /**\n" +
+                "     * 修改人名称\n" +
+                "     */\n" +
+                "    private String modifyUserCodeName;\n" +
+                "    /**\n" +
+                "     * 申请网点名称（部门）\n" +
+                "     */\n" +
+                "    private String sqSiteCodeName;\n" +
+                "    /**\n" +
+                "     * 申请时间开始\n" +
+                "     */\n" +
+                "    private Date applicationTimeStart;\n" +
+                "    /**\n" +
+                "     * 申请时间结束\n" +
+                "     */\n" +
+                "    private Date applicationTimeEnd;\n" +
+                "    /**\n" +
+                "     * 发放/出库时间开始\n" +
+                "     */\n" +
+                "    private Date provideTimeStart;\n" +
+                "    /**\n" +
+                "     * 发放/出库时间结束\n" +
+                "     */\n" +
+                "    private Date provideTimeEnd;";
         return vo;
     }
 }
