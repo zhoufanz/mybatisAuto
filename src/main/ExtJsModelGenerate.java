@@ -53,7 +53,7 @@ public class ExtJsModelGenerate {
             att = split[2].trim();
 
             if(att.indexOf("Time")>=0){
-                att = "{name:'" + att + "',type:'string',convert: dateConvert},";
+                att = "{name:'" + att + "',type:'date',convert: dateConvert},";
             }else {
                 att = "{name:'" + att + "',type:'string'},";
             }
