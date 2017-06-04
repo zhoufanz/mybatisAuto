@@ -35,7 +35,7 @@ public class ExtJsModelGenerate {
             String att=line.substring(line.indexOf("private"));
             String[] split = att.split(" ");
             att = split[2].trim();
-            att = "{name:'" + att + "',type:'string'};";
+            att = "{name:'" + att + "',type:'string'},";
 
             list.add(comment);
             list.add(att);
