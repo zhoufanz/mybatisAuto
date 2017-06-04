@@ -34,8 +34,8 @@ public class GeneratorSqlmap {
 
 	public static void main(String[] args) throws Exception {
 		try {
-			//初步生成dao,实体
-		/*	GeneratorSqlmap generatorSqlmap = new GeneratorSqlmap();
+			/*//初步生成dao,实体
+			GeneratorSqlmap generatorSqlmap = new GeneratorSqlmap();
 			generatorSqlmap.generator();
 			System.out.println("dao,entity ok了");
 			
