@@ -4,7 +4,7 @@ import com.ycgwl.framework.springmvc.controller.AbstractController;
 @RequestMapping("/mm")
 public class ${entity}Controller extends AbstractController{
 	
-	@Resource
+	@Autowired
 	private I${entity}Service ${lowerentity}Service;
 	
 }
