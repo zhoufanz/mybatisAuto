@@ -169,6 +169,11 @@ public class ContinueGenerate {
 							String column = map.get(filed.trim());
 
 							//根据xml文件获取column
+							if (column!=null){
+								if (column.toUpperCase().equals("ID")) {
+									sb.append("@Id"+"\n");
+								}
+							}
 							sb.append("@Column(" + column + ")" + "\n");
 						}
 						sb.append(line + "\n");
