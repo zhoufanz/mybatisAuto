@@ -34,16 +34,20 @@ public class GeneratorSqlmap {
 
 	public static void main(String[] args) throws Exception {
 		try {
-			/*//初步生成dao,实体
+			//初步生成dao,实体
 			GeneratorSqlmap generatorSqlmap = new GeneratorSqlmap();
 			generatorSqlmap.generator();
 			System.out.println("dao,entity ok了");
 			
 			//根据实体的文件夹目录继续生成
-			ContinueGenerate.continueGenerate(getEntityPath());*/
+			ContinueGenerate.continueGenerate(getEntityPath());
 			//生成newEntityWithColumn
 			ContinueGenerate.continueGenerateNewEntity(getEntityPath());
-			System.out.println("service,controller,dao,newEntityWithColumn ok了");
+			//继续生成vo
+			ContinueGenerate.continueGenerateVo(getEntityPath());
+			//生成没有column的entity
+			ContinueGenerate.continueGenerateEntity(getEntityPath());
+			System.out.println("service,controller,dao,newEntityWithColumn ,vo,entity ok了");
 			System.out.println("去D盘下generate_mybatisXXXXXXXXXXXXX下找代码.txt");
 		} catch (Exception e) {
 			e.printStackTrace();

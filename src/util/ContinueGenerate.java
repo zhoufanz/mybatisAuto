@@ -3,6 +3,7 @@ package util;
 
 
 import java.io.*;
+import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +28,9 @@ public class ContinueGenerate {
 			"D:\\generate_mybatisXXXXXXXXXXXXX\\controller\\",
 			"D:\\generate_mybatisXXXXXXXXXXXXX\\dao\\",
 			"D:\\generate_mybatisXXXXXXXXXXXXX\\dao\\impl\\",
-			"D:\\generate_mybatisXXXXXXXXXXXXX\\newEntityWithColumn\\"
+			"D:\\generate_mybatisXXXXXXXXXXXXX\\newEntityWithColumn\\",
+			"D:\\generate_mybatisXXXXXXXXXXXXX\\vo\\",
+			"D:\\generate_mybatisXXXXXXXXXXXXX\\oldEntityWithNoColumn\\"
 		};
 		for (int i = 0; i < generateTargetPath.length; i++) {
 			File file=new File(generateTargetPath[i]);
@@ -126,6 +129,28 @@ public class ContinueGenerate {
 						//字段列
 						//从第二个空格截到;
 						// private Short blLockFlag;
+						if(line.indexOf("class")!=-1){
+							String substring = file.getName().substring(0, file.getName().indexOf("."));
+
+							String tableName="T"+StringUtil.camelToUnderline(substring).toUpperCase();
+							int i2 = tableName.lastIndexOf("_");
+							tableName = tableName.substring(0, i2);
+							sb.append("@Table(value = \""+tableName+"\", dynamicInsert = true, dynamicUpdate = true)");
+
+							String classLine=null;
+							int i1 = line.indexOf("{");
+							String s = line.substring(0, i1) + " implements Serializable {";
+							sb.append("\n");
+							sb.append(s);
+							sb.append("\n");
+							sb.append("\n");
+							sb.append("    private static final long serialVersionUID = -8177101062986808601L;");
+							sb.append("\n");
+							sb.append("\n");
+							continue;
+
+						}
+
 						if (line.indexOf("private ") != -1) {
 							//空格数量
 							int number = line.indexOf("private");
@@ -209,5 +234,128 @@ public class ContinueGenerate {
 			}
 		}
 		return map;
+	}
+
+	//基于已经生成的实体类继续生成 vo
+	public static void continueGenerateVo(String entityPath) {
+		File directoryFile=new File(entityPath);
+		try {
+			File[] files=directoryFile.listFiles();
+			for (int i = 0; i < files.length; i++) {
+				try {
+					String fileName = files[i].getName();
+
+					int index = fileName.lastIndexOf("Entity");
+					if (index == -1) {
+						throw new Exception("实体后缀必须为Entity");
+					}
+
+					//处理file
+					File file = files[i];
+					BufferedReader bre = new BufferedReader(new FileReader(file));
+
+					StringBuilder sb = new StringBuilder();
+					String line = null;
+					while ((line = bre.readLine()) != null) {
+
+						if(line.indexOf("class")!=-1){
+							String classLine=null;
+							int i1 = line.indexOf("{");
+							String s = line.substring(0, i1) + " implements Serializable {";
+							int entity = s.lastIndexOf("Entity");
+							String s1 = s.substring(0, entity) + "Vo" + s.substring(entity + "Entity".length() + 1);
+							sb.append("\n");
+							sb.append(s1);
+							sb.append("\n");
+							sb.append("\n");
+							sb.append("    private static final long serialVersionUID = -8177101062986808601L;");
+							sb.append("\n");
+							sb.append("\n");
+							continue;
+
+						}
+
+						sb.append(line + "\n");
+					}
+
+					//生成新文件
+					String voFileName=null;
+					int begin=file.getName().indexOf("Entity");
+					voFileName = file.getName().substring(0,begin) + "Vo.java";
+					File newFile = new File(generateTargetPath[6] + "\\" + voFileName);
+					newFile.createNewFile();
+
+					FileWriter fileWriter = new FileWriter(newFile, true);
+					fileWriter.write(sb.toString());
+
+					fileWriter.flush();
+
+					fileWriter.close();
+					bre.close();
+
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	//基于已经生成的实体类继续生成 entity
+	public static void continueGenerateEntity(String entityPath) {
+		File directoryFile=new File(entityPath);
+		try {
+			File[] files=directoryFile.listFiles();
+			for (int i = 0; i < files.length; i++) {
+				try {
+					String fileName = files[i].getName();
+
+					int index = fileName.lastIndexOf("Entity");
+					if (index == -1) {
+						throw new Exception("实体后缀必须为Entity");
+					}
+
+					//处理file
+					File file = files[i];
+					BufferedReader bre = new BufferedReader(new FileReader(file));
+
+					StringBuilder sb = new StringBuilder();
+					String line = null;
+					while ((line = bre.readLine()) != null) {
+						if(line.indexOf("class")!=-1){
+							String classLine=null;
+							int i1 = line.indexOf("{");
+							String s = line.substring(0, i1) + " implements Serializable {";
+							sb.append("\n");
+							sb.append(s);
+							sb.append("\n");
+							sb.append("\n");
+							sb.append("    private static final long serialVersionUID = -8177101062986808601L;");
+							sb.append("\n");
+							sb.append("\n");
+							continue;
+
+						}
+						sb.append(line + "\n");
+					}
+
+					File newFile = new File(generateTargetPath[7] + "\\" + file.getName());
+					newFile.createNewFile();
+
+					FileWriter fileWriter = new FileWriter(newFile, true);
+					fileWriter.write(sb.toString());
+
+					fileWriter.flush();
+
+					fileWriter.close();
+					bre.close();
+
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }

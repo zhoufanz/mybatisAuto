@@ -3,6 +3,8 @@ package util;
 import java.util.List;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringUtil {
 
@@ -98,5 +100,66 @@ public class StringUtil {
 		/*System.out.println(makeBigHump("dfsds_dsf_dfsd"));
 		System.out.println(makeBigHump2("dfsds_dsf_dfsd"))*/;
 		//System.out.println(getStringArr("F:\\eclipse-jee-luna\\mybatisAuto2\\src\\org\\java\\entity"));
+//		System.out.println(camelToUnderline("PpSddDdff"));
+		String s = "dsfsfd.ss";
+		int i = s.indexOf(".");
+		String substring = s.substring(0, i);
+		System.out.println(substring);
+	}
+
+	/**
+	 * 驼峰写法 返回 _x_
+	 * @param bigHum
+	 * @return
+	 */
+	public static final char UNDERLINE='_';
+	public static String camelToUnderline(String param){
+		if (param==null||"".equals(param.trim())){
+			return "";
+		}
+		int len=param.length();
+		StringBuilder sb=new StringBuilder(len);
+		for (int i = 0; i < len; i++) {
+			char c=param.charAt(i);
+			if (Character.isUpperCase(c)){
+				sb.append(UNDERLINE);
+				sb.append(Character.toLowerCase(c));
+			}else{
+				sb.append(c);
+			}
+		}
+		return sb.toString();
+	}
+	public static String underlineToCamel(String param){
+		if (param==null||"".equals(param.trim())){
+			return "";
+		}
+		int len=param.length();
+		StringBuilder sb=new StringBuilder(len);
+		for (int i = 0; i < len; i++) {
+			char c=param.charAt(i);
+			if (c==UNDERLINE){
+				if (++i<len){
+					sb.append(Character.toUpperCase(param.charAt(i)));
+				}
+			}else{
+				sb.append(c);
+			}
+		}
+		return sb.toString();
+	}
+	public static String underlineToCamel2(String param){
+		if (param==null||"".equals(param.trim())){
+			return "";
+		}
+		StringBuilder sb=new StringBuilder(param);
+		Matcher mc= Pattern.compile("_").matcher(param);
+		int i=0;
+		while (mc.find()){
+			int position=mc.end()-(i++);
+			//String.valueOf(Character.toUpperCase(sb.charAt(position)));
+			sb.replace(position-1,position+1,sb.substring(position,position+1).toUpperCase());
+		}
+		return sb.toString();
 	}
 }

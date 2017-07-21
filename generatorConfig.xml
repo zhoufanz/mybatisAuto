@@ -24,7 +24,7 @@
 		</jdbcConnection>-->
 		<!--oracle-->
 		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-						connectionURL="jdbc:oracle:thin:@172.16.254.49:1521/ycmain"
+						connectionURL="jdbc:oracle:thin:@172.16.37.5:1521/ycmain"
 						userId="k8pda" password="kyun@!987">
 			<property name="remarksReporting" value="true"></property>
 		</jdbcConnection>
@@ -88,7 +88,7 @@
 		></table>-->
 
 
-		<table tableName="tab_employee" domainObjectName="MmBosTabEmployeeEntity" enableDeleteByExample="false"
+		<table tableName="tab_province" domainObjectName="BaseBosTabProvinceEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<!-- 字段驼峰命名 -->
@@ -97,7 +97,7 @@
 			<!-- 重写列名 -->
 			<!-- <columnOverride column="ParamName" property="ParamName"/> -->
 		</table>
-		<table tableName="tab_site" domainObjectName="MmBosTabSiteEntity" enableDeleteByExample="false"
+		<table tableName="tab_city" domainObjectName="BaseBosTabCityEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<!-- 字段驼峰命名 -->
@@ -106,6 +106,33 @@
 			<!-- 重写列名 -->
 			<!-- <columnOverride column="ParamName" property="ParamName"/> -->
 		</table>
+		<table tableName="tab_county" domainObjectName="BaseBosTabCountyEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<!-- 字段驼峰命名 -->
+			<property name="useActualColumnNames" value="false"/>
+
+			<!-- 重写列名 -->
+			<!-- <columnOverride column="ParamName" property="ParamName"/> -->
+		</table>
+		<!--<table tableName="tab" domainObjectName="MmIncomeCostStatisticsEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			&lt;!&ndash; 字段驼峰命名 &ndash;&gt;
+			<property name="useActualColumnNames" value="false"/>
+
+			&lt;!&ndash; 重写列名 &ndash;&gt;
+			&lt;!&ndash; <columnOverride column="ParamName" property="ParamName"/> &ndash;&gt;
+		</table>-->
+		<!--<table tableName="tab_site" domainObjectName="MmBosTabSiteEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			&lt;!&ndash; 字段驼峰命名 &ndash;&gt;
+			<property name="useActualColumnNames" value="false"/>
+
+			&lt;!&ndash; 重写列名 &ndash;&gt;
+			&lt;!&ndash; <columnOverride column="ParamName" property="ParamName"/> &ndash;&gt;
+		</table>-->
 
 
 
