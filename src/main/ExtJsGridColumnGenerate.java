@@ -51,6 +51,8 @@ public class ExtJsGridColumnGenerate {
                 sb.append("dataIndex: '"+dataIndex+"'");
                 if (dataIndex.indexOf("Time")>=0){
                     sb.append(",renderer: Ext.util.Format.dateRenderer('Y-m-d')");
+                }else if (dataIndex.indexOf("Date")>=0){
+                    sb.append(",renderer: Ext.util.Format.dateRenderer('Y-m-d')");
                 }
                 sb.append("},\n");
             }
@@ -59,72 +61,66 @@ public class ExtJsGridColumnGenerate {
     }
 
     public static String init(){
-        String columns="//主键\n" +
+        String columns="//id\n" +
                 "{name:'id',type:'string'},\n" +
-                "//申请单号\n" +
-                "{name:'applicationCode',type:'string'},\n" +
-                "//物品批次号\n" +
-                "{name:'batchNumber',type:'string'},\n" +
-                "//奖励数量\n" +
-                "{name:'applicationNumber',type:'string'},\n" +
-                "//销售合计\n" +
-                "{name:'sqdProposeTotal',type:'string'},\n" +
-                "//采购合计\n" +
-                "{name:'sqdPurchTotal',type:'string'},\n" +
-                "//详情备注\n" +
-                "{name:'detailRemark',type:'string'},\n" +
-                "//库存信息\n" +
-                "{name:'projectCode',type:'string'},\n" +
-                "//科目名称\n" +
-                "{name:'projectName',type:'string'},\n" +
-                "//父节点CODE\n" +
-                "{name:'regionParent',type:'string'},\n" +
-                "//等级（一级科目：FRIST,二级科目：SECOND,三级科目:THIRD,品类：CLASS）\n" +
-                "{name:'regionLevel',type:'string'},\n" +
-                "//型号\n" +
-                "{name:'version',type:'string'},\n" +
-                "//单位\n" +
-                "{name:'unit',type:'string'},\n" +
-                "//图号\n" +
-                "{name:'picturenum',type:'string'},\n" +
-                "//建议销售价格\n" +
-                "{name:'proposeCost',type:'string'},\n" +
-                "//供应商\n" +
-                "{name:'supplier',type:'string'},\n" +
-                "//所属仓库\n" +
-                "{name:'subWareHouse',type:'string'},\n" +
-                "//所属仓库名称\n" +
-                "{name:'subWareHouseName',type:'string'},\n" +
-                "//库存数量\n" +
-                "{name:'stockNumber',type:'string'},\n" +
-                "//可领数量\n" +
-                "{name:'canReceiveNumber',type:'string'},\n" +
-                "//采购单价\n" +
-                "{name:'purchPrice',type:'string'},\n" +
-                "//进库日期\n" +
-                "{name:'enterTime',type:'date',convert: dateConvert},\n" +
-                "//有效日期\n" +
-                "{name:'effectiveTime',type:'date',convert: dateConvert},\n" +
-                "//失效日期\n" +
-                "{name:'invalidTime',type:'date',convert: dateConvert},\n" +
-                "//一级科目代码\n" +
-                "{name:'firstProjectCode',type:'string'},\n" +
-                "//一级科目名称\n" +
-                "{name:'firstProjectName',type:'string'},\n" +
-                "//二级科目代码\n" +
-                "{name:'secondProjectCode',type:'string'},\n" +
-                "//二级科目名称\n" +
-                "{name:'secondProjectName',type:'string'},\n" +
-                "//三级科目代码\n" +
-                "{name:'threeProjectCode',type:'string'},\n" +
-                "//三级科目名称\n" +
-                "{name:'threeProjectName',type:'string'},\n" +
+                "//折扣类型编码\n" +
+                "{name:'discountCode',type:'string'},\n" +
+                "//折扣类型编码\n" +
+                "{name:'discountCodeName',type:'string'},\n" +
+                "//业务类型:(0：全部 1：汽运 2：特快件(航空) 业务类型:(0：全部 1：汽运 2：特快件(航空) 业务类型:(0：全部 1：汽运 2：特快件(航空)\n" +
+                "{name:'bizType',type:'string'},\n" +
+                "//业务类型:(0：全部 1：汽运 2：特快件(航空) 业务类型:(0：全部 1：汽运 2：特快件(航空) 业务类型:(0：全部 1：汽运 2：特快件(航空)名字\n" +
+                "{name:'bizTypeName',type:'string'},\n" +
+                "//产品类型 目前分（1.便利达、2.快运件、3.物流件、4.代收点业务、5.整车业务）\n" +
+                "{name:'productType',type:'string'},\n" +
+                "//产品类型 目前分（1.便利达、2.快运件、3.物流件、4.代收点业务、5.整车业务）名字\n" +
+                "{name:'productTypeName',type:'string'},\n" +
+                "//派件方式（0：全部 1：自提 2:：派送）\n" +
+                "{name:'pickGoodsType',type:'string'},\n" +
+                "//派件方式（0：全部 1：自提 2:：派送）名字\n" +
+                "{name:'pickGoodsTypeName',type:'string'},\n" +
+                "//客户类型 目前分(1.零散客户、2.目标客户、3.项目客户、4.大客户、5.电商钻石会员、6.物流划分客户、7.电商普通会员、8.一次性整车、9.到达分理客户、10.物流交易客户、11.联合开发客户)\n" +
+                "{name:'customerType',type:'string'},\n" +
+                "//客户类型 目前分(1.零散客户、2.目标客户、3.项目客户、4.大客户、5.电商钻石会员、6.物流划分客户、7.电商普通会员、8.一次性整车、9.到达分理客户、10.物流交易客户、11.联合开发客户)名字\n" +
+                "{name:'customerTypeName',type:'string'},\n" +
+                "//货物类型 目前分（1.电子配件、2.电商、3.机械、4.食品、5.纺织、6.建材、7.化工、8.家具、9.酒水、10.医药、11.电器、12.其它、13.办公用品、14.日用）\n" +
+                "{name:'goodsType',type:'string'},\n" +
+                "//货物类型 目前分（1.电子配件、2.电商、3.机械、4.食品、5.纺织、6.建材、7.化工、8.家具、9.酒水、10.医药、11.电器、12.其它、13.办公用品、14.日用）名字\n" +
+                "{name:'goodsTypeName',type:'string'},\n" +
+                "//货物名称\n" +
+                "{name:'goodsName',type:'string'},\n" +
+                "//支付方式（1：现金 2：到付 3：月结 4：返款到付 5：预付款 6：回单付）\n" +
+                "{name:'paymentMethod',type:'string'},\n" +
+                "//支付方式（1：现金 2：到付 3：月结 4：返款到付 5：预付款 6：回单付）名字\n" +
+                "{name:'paymentMethodName',type:'string'},\n" +
+                "//开始重量\n" +
+                "{name:'weightBegin',type:'string'},\n" +
+                "//结束重量\n" +
+                "{name:'weightEng',type:'string'},\n" +
+                "//折扣值\n" +
+                "{name:'discountValue',type:'string'},\n" +
                 "//备注\n" +
-                "{name:'remark',type:'string'},\n" +
-                "//入库人\n" +
+                "{name:'remarks',type:'string'},\n" +
+                "//创建时间\n" +
+                "{name:'createDate',type:'string'},\n" +
+                "//创建人\n" +
                 "{name:'createUserCode',type:'string'},\n" +
-                "//入库人\n" +
-                "{name:'createUserCodeName',type:'string'},";
+                "//创建人名字\n" +
+                "{name:'createUserCodeName',type:'string'},\n" +
+                "//修改时间\n" +
+                "{name:'modifyDate',type:'string'},\n" +
+                "//修改人\n" +
+                "{name:'modifyUserCode',type:'string'},\n" +
+                "//修改人名字\n" +
+                "{name:'modifyUserCodeName',type:'string'},\n" +
+                "//启用时间\n" +
+                "{name:'startDate',type:'string'},\n" +
+                "//截止时间\n" +
+                "{name:'endDate',type:'string'},\n" +
+                "//是否 1：启用 0:禁用\n" +
+                "{name:'blflag',type:'string'},\n" +
+                "//活动分类主表外键ID\n" +
+                "{name:'classificationId',type:'string'},";
         return columns;
     }
 }
