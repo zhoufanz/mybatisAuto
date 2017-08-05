@@ -3,15 +3,9 @@ package util;
 
 
 import java.io.*;
-import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import util.FreeMakerUtil;
-import util.StringUtil;
-
-import static java.awt.SystemColor.info;
 
 
 public class ContinueGenerate {
@@ -129,7 +123,7 @@ public class ContinueGenerate {
 						//字段列
 						//从第二个空格截到;
 						// private Short blLockFlag;
-						if(line.indexOf("class")!=-1){
+						if(line.indexOf(" class ")!=-1){
 							String substring = file.getName().substring(0, file.getName().indexOf("."));
 
 							String tableName="T"+StringUtil.camelToUnderline(substring).toUpperCase();
@@ -161,6 +155,7 @@ public class ContinueGenerate {
 							try {
 								filed = copyLine.substring(copyLine.indexOf(" ", "private ".length() + 2), copyLine.indexOf(";"));
 							} catch (Exception ex) {
+								ex.printStackTrace();
 								System.out.println(line);
 							}
 							for (int j = 0; j < number; j++) {
@@ -192,10 +187,12 @@ public class ContinueGenerate {
 					bre.close();
 
 				} catch (Exception ex) {
+					ex.printStackTrace();
 					System.out.println(ex.getMessage());
 				}
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 	}
@@ -234,6 +231,7 @@ public class ContinueGenerate {
 					String key = line.substring(0, line.indexOf("\""));
 					map.put(key, "\""+value+"\"");
 				} catch (Exception ex) {
+					ex.printStackTrace();
 					System.out.println(ex.getMessage());
 				}
 			}
@@ -263,7 +261,7 @@ public class ContinueGenerate {
 					String line = null;
 					while ((line = bre.readLine()) != null) {
 
-						if(line.indexOf("class")!=-1){
+						if(line.indexOf(" class ")!=-1){
 							String classLine=null;
 							int i1 = line.indexOf("{");
 							String s = line.substring(0, i1) + " implements Serializable {";
@@ -299,10 +297,12 @@ public class ContinueGenerate {
 					bre.close();
 
 				} catch (Exception ex) {
+					ex.printStackTrace();
 					System.out.println(ex.getMessage());
 				}
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 	}
@@ -327,7 +327,7 @@ public class ContinueGenerate {
 					StringBuilder sb = new StringBuilder();
 					String line = null;
 					while ((line = bre.readLine()) != null) {
-						if(line.indexOf("class")!=-1){
+						if(line.indexOf(" class ")!=-1){
 							String classLine=null;
 							int i1 = line.indexOf("{");
 							String s = line.substring(0, i1) + " implements Serializable {";
@@ -356,10 +356,12 @@ public class ContinueGenerate {
 					bre.close();
 
 				} catch (Exception ex) {
+					ex.printStackTrace();
 					System.out.println(ex.getMessage());
 				}
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 	}
