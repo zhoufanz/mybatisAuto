@@ -33,143 +33,243 @@ public class JavaVoToExtModel {
 
         for (int i = 0; i < lines.length; i++) {
             String line= lines[i].trim();
-
-            int begin=line.indexOf("*",3);
-            int end = line.indexOf("\n", begin);
-            String comment = line.substring(begin+1,end);
-
-            comment=comment.trim();
-
-            int idx=comment.indexOf("/");
-            while(idx>=0){
-                comment = comment.substring(idx + 1);
-                idx=comment.indexOf("/");
-            }
-            comment = "//" + comment;
-
-            String att=line.substring(line.indexOf("private"));
-            String[] split = att.split(" ");
-            att = split[2].trim();
-
-            if(att.indexOf("Time")>=0||att.indexOf("Date")>=0){
-                att = "{name:'" + att + "',type:'date',convert: dateConvert},";
-            }else {
-                att = "{name:'" + att + "',type:'string'},";
+            if(line==null||line.equals("")){
+                continue;
             }
 
-            list.add(comment);
-            list.add(att);
+            try{
+                int begin=line.indexOf("*",3);
+                int end = line.indexOf("\n", begin);
+                String comment = line.substring(begin+1,end);
+
+                comment=comment.trim();
+
+                int idx=comment.indexOf("/");
+                while(idx>=0){
+                    comment = comment.substring(idx + 1);
+                    idx=comment.indexOf("/");
+                }
+                comment = "//" + comment;
+
+                String att=line.substring(line.indexOf("private"));
+                String[] split = att.split(" ");
+                att = split[2].trim();
+
+                if(att.indexOf("Time")>=0||att.indexOf("Date")>=0){
+                    att = "{name:'" + att + "',type:'date',convert: dateConvert},";
+                }else {
+                    att = "{name:'" + att + "',type:'string'},";
+                }
+
+                list.add(comment);
+                list.add(att);
+            }catch(Exception ex){
+                System.err.println("异常 "+line);
+            }
         }
         for(String s:list){
             System.out.println(s);
         }
     }
     public static String init(){
-        return "/**\n" +
-                "     * 审核iD\n" +
+        return "    /**\n" +
+                "     * 运单号\n" +
                 "     */\n" +
-                "    private String id;\n" +
+                "    private String billNo;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 价格条目编码\n" +
+                "     * 录单人编号\n" +
                 "     */\n" +
-                "    private String priceItemCode;\n" +
+                "    private String recordEmployeeCode;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 产品类型编码\n" +
+                "     * 发货网点\n" +
+                "     */\n" +
+                "    private String sendSiteCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 寄件日期\n" +
+                "     */\n" +
+                "    private Date accountTime;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 客户名称\n" +
+                "     */\n" +
+                "    private String customerCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 支付类型\n" +
+                "     */\n" +
+                "    private String payType;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 签收：1签收 ，0 没有签收\n" +
+                "     */\n" +
+                "    private Short signFlag;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 签收人\n" +
+                "     */\n" +
+                "    private String signEmployeeCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 签收日期\n" +
+                "     */\n" +
+                "    private Date signTime;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 签收网点编号\n" +
+                "     */\n" +
+                "    private String signSiteCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 业务员\n" +
+                "     */\n" +
+                "    private String salesEmployeeCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 取件员\n" +
+                "     */\n" +
+                "    private String takePartEmployeeCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 派件员\n" +
+                "     */\n" +
+                "    private String dispatchEmployeeCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 寄件人\n" +
+                "     */\n" +
+                "    private String sendUserCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 承运公司\n" +
+                "     */\n" +
+                "    private String carrierCompany;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 预付款\n" +
+                "     */\n" +
+                "    private BigDecimal advancePayment;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 返款\n" +
+                "     */\n" +
+                "    private BigDecimal rebates;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 到付款\n" +
+                "     */\n" +
+                "    private BigDecimal payment;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 总金额\n" +
+                "     */\n" +
+                "    private BigDecimal totalAmount;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 派送时间\n" +
+                "     */\n" +
+                "    private Date dispatchTime;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 派送网点\n" +
+                "     */\n" +
+                "    private String dispatchSiteCode;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 产品类型\n" +
                 "     */\n" +
                 "    private String productCode;\n" +
-                "    /**\n" +
-                "     * 产品类型编码名字\n" +
-                "     */\n" +
-                "    private String productCodeName;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 业务类型:(0：全部 1：汽运 2：特快件(航空)\n" +
+                "     * 客户类型\n" +
                 "     */\n" +
-                "    private String bizType;\n" +
-                "    /**\n" +
-                "     * 业务类型:(0：全部 1：汽运 2：特快件(航空)名字\n" +
-                "     */\n" +
-                "    private String bizTypeName;\n" +
+                "    private String customerType;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 货物属性 （0：普通件 1：易碎品 2：贵重物品）\n" +
+                "     * 货物当前位置\n" +
                 "     */\n" +
-                "    private String goodsMode;\n" +
+                "    private String goodsCurrentPosition;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 货物属性 （0：普通件 1：易碎品 2：贵重物品）名字\n" +
+                "     * 货物当前位置分公司\n" +
                 "     */\n" +
-                "    private String goodsModeName;\n" +
-                "\n" +
-                "\n" +
-                "    /**\n" +
-                "     * 开始时间\n" +
-                "     */\n" +
-                "    private Date startDate;\n" +
+                "    private String goodsCurrentPositionBranch;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 结束时间\n" +
+                "     * 利润\n" +
                 "     */\n" +
-                "    private Date endDate;\n" +
+                "    private BigDecimal profits;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 创建人\n" +
+                "     * 签收录入人\n" +
                 "     */\n" +
-                "    private String createUserCode;\n" +
+                "    private String signInEmployeeCode;\n" +
+                "\n" +
                 "    /**\n" +
-                "     * 创建人名字\n" +
+                "     * 群人\n" +
                 "     */\n" +
-                "    private String createUserCodeName;\n" +
+                "    private String groupUser;\n" +
                 "\n" +
                 "    /**\n" +
                 "     * 创建时间\n" +
                 "     */\n" +
-                "    private Date createDate;\n" +
-                "\n" +
-                "    /**\n" +
-                "     * 修改人\n" +
-                "     */\n" +
-                "    private String modifyUserCode;\n" +
-                "    /**\n" +
-                "     * 修改人名字\n" +
-                "     */\n" +
-                "    private String modifyUserCodeName;\n" +
-                "\n" +
-                "    /**\n" +
-                "     * 修改时间\n" +
-                "     */\n" +
-                "    private Date modifyDate;\n" +
+                "    private Date createTime;\n" +
                 "\n" +
                 "    /**\n" +
                 "     * 备注\n" +
                 "     */\n" +
-                "    private String remarks;\n" +
-                "\n" +
-                "\n" +
-                "    /**\n" +
-                "     * 报价分类主表外键ID\n" +
-                "     */\n" +
-                "    private String priceId;\n" +
-                "    /**\n" +
-                "     * 发货区域集合\n" +
-                "     */\n" +
-                "    private List<String> addressSendCodeList;\n" +
+                "    private String remark;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 收货区域编码集合\n" +
+                "     * 目的地\n" +
                 "     */\n" +
-                "    private List<String> addressEndCodeList;\n" +
+                "    private String destination;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 发货区域\n" +
+                "     * j件数\n" +
                 "     */\n" +
-                "    private String addressSendCodeName;\n" +
+                "    private BigDecimal pieceNumber;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 收货区域编码\n" +
+                "     * 重量\n" +
                 "     */\n" +
-                "    private String addressEndCodeName;";
+                "    private BigDecimal settlementWeight;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 体积\n" +
+                "     */\n" +
+                "    private BigDecimal cube;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 货物名称\n" +
+                "     */\n" +
+                "    private String goodsName;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 基本费用\n" +
+                "     */\n" +
+                "    private BigDecimal freight;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 保价费\n" +
+                "     */\n" +
+                "    private BigDecimal insurance;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 综合服务费\n" +
+                "     */\n" +
+                "    private BigDecimal goodsPayment;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 代收货款\n" +
+                "     */\n" +
+                "    private BigDecimal documentFee;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 收货地址\n" +
+                "     */\n" +
+                "    private String takeGoodsAddress;\n";
     }
 }
