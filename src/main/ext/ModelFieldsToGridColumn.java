@@ -61,49 +61,65 @@ public class ModelFieldsToGridColumn {
     }
 
     public static String init(){
-        return "//审核iD\n" +
-                "{name:'id',type:'string'},\n" +
-                "//价格条目编码\n" +
-                "{name:'priceItemCode',type:'string'},\n" +
-                "//产品类型编码\n" +
+        return "//运单号\n" +
+                "{name:'billNo',type:'string'},\n" +
+                "//录单人编号\n" +
+                "{name:'recordEmployeeCode',type:'string'},\n" +
+                "//发货网点\n" +
+                "{name:'sendSiteCode',type:'string'},\n" +
+                "//寄件日期\n" +
+                "{name:'accountTime',type:'date',convert: dateConvert},\n" +
+                "//客户名称\n" +
+                "{name:'customerCode',type:'string'},\n" +
+                "//支付类型\n" +
+                "{name:'payType',type:'string'},\n" +
+                "//签收：1签收 ，0 没有签收\n" +
+                "{name:'signFlag',type:'string'},\n" +
+                "//签收人\n" +
+                "{name:'signEmployeeCode',type:'string'},\n" +
+                "//签收日期\n" +
+                "{name:'signTime',type:'date',convert: dateConvert},\n" +
+                "//签收网点编号\n" +
+                "{name:'signSiteCode',type:'string'},\n" +
+                "//业务员\n" +
+                "{name:'salesEmployeeCode',type:'string'},\n" +
+                "//取件员\n" +
+                "{name:'takePartEmployeeCode',type:'string'},\n" +
+                "//派件员\n" +
+                "{name:'dispatchEmployeeCode',type:'string'},\n" +
+                "//寄件人\n" +
+                "{name:'sendUserCode',type:'string'},\n" +
+                "//承运公司\n" +
+                "{name:'carrierCompany',type:'string'},\n" +
+                "//预付款\n" +
+                "{name:'advancePayment',type:'string'},\n" +
+                "//返款\n" +
+                "{name:'rebates',type:'string'},\n" +
+                "//到付款\n" +
+                "{name:'payment',type:'string'},\n" +
+                "//总金额\n" +
+                "{name:'totalAmount',type:'string'},\n" +
+                "//派送时间\n" +
+                "{name:'dispatchTime',type:'date',convert: dateConvert},\n" +
+                "//派送网点\n" +
+                "{name:'dispatchSiteCode',type:'string'},\n" +
+                "//产品类型\n" +
                 "{name:'productCode',type:'string'},\n" +
-                "//产品类型编码名字\n" +
-                "{name:'productCodeName',type:'string'},\n" +
-                "//业务类型:(0：全部 1：汽运 2：特快件(航空)\n" +
-                "{name:'bizType',type:'string'},\n" +
-                "//业务类型:(0：全部 1：汽运 2：特快件(航空)名字\n" +
-                "{name:'bizTypeName',type:'string'},\n" +
-                "//货物属性 （0：普通件 1：易碎品 2：贵重物品）\n" +
-                "{name:'goodsMode',type:'string'},\n" +
-                "//货物属性 （0：普通件 1：易碎品 2：贵重物品）名字\n" +
-                "{name:'goodsModeName',type:'string'},\n" +
-                "//开始时间\n" +
-                "{name:'startDate',type:'date',convert: dateConvert},\n" +
-                "//结束时间\n" +
-                "{name:'endDate',type:'date',convert: dateConvert},\n" +
-                "//创建人\n" +
-                "{name:'createUserCode',type:'string'},\n" +
-                "//创建人名字\n" +
-                "{name:'createUserCodeName',type:'string'},\n" +
+                "//客户类型\n" +
+                "{name:'customerType',type:'string'},\n" +
+                "//货物当前位置\n" +
+                "{name:'goodsCurrentPosition',type:'string'},\n" +
+                "//货物当前位置分公司\n" +
+                "{name:'goodsCurrentPositionBranch',type:'string'},\n" +
+                "//利润\n" +
+                "{name:'profits',type:'string'},\n" +
+                "//签收录入人\n" +
+                "{name:'signInEmployeeCode',type:'string'},\n" +
+                "//群人\n" +
+                "{name:'groupUser',type:'string'},\n" +
                 "//创建时间\n" +
-                "{name:'createDate',type:'date',convert: dateConvert},\n" +
-                "//修改人\n" +
-                "{name:'modifyUserCode',type:'string'},\n" +
-                "//修改人名字\n" +
-                "{name:'modifyUserCodeName',type:'string'},\n" +
-                "//修改时间\n" +
-                "{name:'modifyDate',type:'date',convert: dateConvert},\n" +
+                "{name:'createTime',type:'date',convert: dateConvert},\n" +
                 "//备注\n" +
-                "{name:'remarks',type:'string'},\n" +
-                "//报价分类主表外键ID\n" +
-                "{name:'priceId',type:'string'},\n" +
-                "//发货区域集合\n" +
-                "{name:'addressSendCodeList',type:'string'},\n" +
-                "//收货区域编码集合\n" +
-                "{name:'addressEndCodeList',type:'string'},\n" +
-                "//发货区域\n" +
-                "{name:'addressSendCodeName',type:'string'},\n" +
-                "//收货区域编码\n" +
-                "{name:'addressEndCodeName',type:'string'},";
+                "{name:'remark',type:'string'},\n";
     }
 }
