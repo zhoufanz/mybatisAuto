@@ -88,7 +88,7 @@
 		></table>-->
 
 
-		<table tableName="T_FIN_ACCOUNT_OPER_AUDIT" domainObjectName="FinAccountOperAuditEntity" enableDeleteByExample="false"
+		<table tableName="T_FIN_ACCOUNT" domainObjectName="FinAccountEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<!-- 字段驼峰命名 -->
