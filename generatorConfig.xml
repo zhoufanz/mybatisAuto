@@ -88,14 +88,14 @@
 		></table>-->
 
 
-		<table tableName="T_FIN_ACCOUNT" domainObjectName="FinAccountEntity" enableDeleteByExample="false"
+	<!--	<table tableName="T_FIN_ACCOUNT" domainObjectName="FinAccountEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<!-- 字段驼峰命名 -->
+			&lt;!&ndash; 字段驼峰命名 &ndash;&gt;
 			<property name="useActualColumnNames" value="false"/>
-			<!-- 重写列名 -->
-			<!-- <columnOverride column="ParamName" property="ParamName"/> -->
-		</table>
+			&lt;!&ndash; 重写列名 &ndash;&gt;
+			&lt;!&ndash; <columnOverride column="ParamName" property="ParamName"/> &ndash;&gt;
+		</table>-->
 
 
 
