@@ -1,14 +1,14 @@
 package main;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
 import org.mybatis.generator.internal.DefaultShellCallback;
-
 import util.ContinueGenerate;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GeneratorSqlmap {
 
@@ -32,30 +32,42 @@ public class GeneratorSqlmap {
 		myBatisGenerator.generate(null);
 	}
 
+
+	//获得已经生成的实体类文件夹路径
+	private static String getEntityPath(){
+			return new File(System.getProperty("user.dir"),"/src/org/java/entity").getAbsolutePath();
+	}
+
+
+	/**
+	 * 生成 前 将D盘下generate_mybatisXXXXXXXXXXXXX下 文件全部删除
+	 * 将当前项目下 org文件下文件全部删除
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 		try {
 			//初步生成dao,实体
 			GeneratorSqlmap generatorSqlmap = new GeneratorSqlmap();
 			generatorSqlmap.generator();
 			System.out.println("dao,entity ok了");
-			
-			//根据实体的文件夹目录继续生成
+
+			//根据实体的文件夹目录继续生成11
 			ContinueGenerate.continueGenerate(getEntityPath());
+
 			//生成newEntityWithColumn
 			ContinueGenerate.continueGenerateNewEntity(getEntityPath());
+
 			//继续生成vo
 			ContinueGenerate.continueGenerateVo(getEntityPath());
+
 			//生成没有column的entity
 			ContinueGenerate.continueGenerateEntity(getEntityPath());
+
 			System.out.println("service,controller,dao,newEntityWithColumn ,vo,entity ok了");
 			System.out.println("去D盘下generate_mybatisXXXXXXXXXXXXX下找代码.txt");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	//获得已经生成的实体类文件夹路径
-	private static String getEntityPath(){
-			return new File(System.getProperty("user.dir"),"/src/org/java/entity").getAbsolutePath();
-	}
-
 }

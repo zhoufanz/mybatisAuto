@@ -228,8 +228,8 @@ public class ContinueGenerate {
 					String value = line.substring(begin, end);
 
 					int begin2=line.indexOf("property");
-					int end2=line.indexOf("/");
-					String key = line.substring(begin2+"property".length()+2,end2-2);
+					int end2=line.indexOf("\"",begin2+"property".length()+2);
+					String key = line.substring(begin2+"property".length()+2,end2);
 					map.put(key, "\""+value+"\"");
 				} catch (Exception ex) {
 					ex.printStackTrace();

@@ -16,12 +16,19 @@
 			<property name="suppressAllComments" value="false" />
 		</commentGenerator>
 
-		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
-	<!--	<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-			connectionURL="jdbc:oracle:thin:localhost:1521:orcl.127.0.0.1" userId="YCGXSH"
-			password="YCGXSH">
-			<property name="remarksReporting" value="true"></property>
-		</jdbcConnection>-->
+		<!-- mysql -->
+		<!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.213.201:3306/junyao" userId="root"
+                        password="u6nERk5+G=Q:">
+                    <property name="useInformationSchema" value="true"></property>
+        </jdbcConnection>-->
+		<!-- sqlserver -->
+		<!--<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+                        connectionURL="jdbc:sqlserver://172.16.254.10:1433;DatabaseName=yccenter" userId="zbtmstoad0511"
+                        password="ycmic20170511_*# @#">
+                    <property name="useInformationSchema" value="true"></property>
+        </jdbcConnection>
+		-->
 		<!--oracle-->
 		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
 						connectionURL="jdbc:oracle:thin:@172.16.35.4:1521/FOKF"
@@ -29,29 +36,11 @@
 			<property name="remarksReporting" value="true"></property>
 		</jdbcConnection>
 
-
-
-		<!-- mysql -->
-		<!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.213.201:3306/junyao" userId="root"
-                        password="u6nERk5+G=Q:">
-                    <property name="useInformationSchema" value="true"></property>
-        </jdbcConnection>-->
-
-		<!-- mysql -->
-	<!--	<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-                        connectionURL="jdbc:sqlserver://172.16.254.10:1433;DatabaseName=yccenter" userId="zbtmstoad0511"
-                        password="ycmic20170511_*# @#">
-                    <property name="useInformationSchema" value="true"></property>
-        </jdbcConnection>
--->
-
 		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
 			NUMERIC 类型解析为java.math.BigDecimal -->
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
-
 		<!-- targetProject:生成PO类的位置 -->
 		<javaModelGenerator targetPackage="org.java.entity"
 			targetProject=".\src">
@@ -73,39 +62,76 @@
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
-		<!-- 指定数据库表
-		<table schema="dishes" tableName="admin" domainObjectName="Admin"></table>
-		<table schema="dishes" tableName="claimBill" domainObjectName="ClaimBill"></table>
-		drop table if exists bas_dict;
-
-		 -->
-
-	<!--	 <table tableName="food"
-			enableDeleteByExample="false"
-			enableUpdateByExample="false"
-			selectByExampleQueryId="false"
-			selectByPrimaryKeyQueryId="false"
-		></table>-->
 
 
-	<!--	<table tableName="T_FIN_ACCOUNT" domainObjectName="FinAccountEntity" enableDeleteByExample="false"
+	   <!---table 放到下面****************************************************                          -->
+		<table tableName="T_FIN_ACCOUNT" domainObjectName="FinAccountEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			&lt;!&ndash; 字段驼峰命名 &ndash;&gt;
 			<property name="useActualColumnNames" value="false"/>
-			&lt;!&ndash; 重写列名 &ndash;&gt;
-			&lt;!&ndash; <columnOverride column="ParamName" property="ParamName"/> &ndash;&gt;
-		</table>-->
+		</table>
+		<table tableName="T_FIN_ACCOUNT_CARD" domainObjectName="FinAccountCardEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="T_FIN_ACCOUNT_OPER_AUDIT" domainObjectName="FinAccountOperAuditEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="T_FIN_ACCOUNT_OPER_INFO" domainObjectName="FinAccountOperInfoEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="T_FIN_ACCOUNT_LIST_BAK" domainObjectName="FinAccountListBakEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="T_FIN_ACCOUNT_LIST" domainObjectName="FinAccountListEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="T_FIN_ACCOUNT_LIST_HISTORY" domainObjectName="FinAccountListHistoryEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="T_FIN_ACCOUNT_TRADE_HISTORY" domainObjectName="FinAccountTradeHistoryEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="T_FIN_ACCOUNT_OPER_HISTORY" domainObjectName="FinAccountOperHistoryEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="T_FIN_ACCOUNT_LIST_BAK2" domainObjectName="FinAccountListBak2Entity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="T_FIN_ACCOUNT_OPER_TEMP" domainObjectName="FinAccountOperTempEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="T_FIN_ACCOUNT_TRADE_DETAIL" domainObjectName="FinAccountTradeDetailEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="T_FIN_ACCOUNT_TRADE_TEMP" domainObjectName="FinAccountTradeTempEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
 
 
 
-
-
-		<!--
-		 -->
-		<!-- 有些表的字段需要指定java类型
-		 <table schema="" tableName="">
-			<columnOverride column="" javaType="" />
-		</table> -->
 	</context>
 </generatorConfiguration>
