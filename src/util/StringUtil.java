@@ -165,7 +165,7 @@ public class StringUtil {
         }
         return sb.toString();
     }
-
+//
     public static String tableNameToEntityName(String tableName) {
         if (tableName.indexOf("T_") >= 0) {
             tableName = tableName.substring(2);
