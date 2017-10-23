@@ -65,17 +65,26 @@
 
 
 	   <!---table 放到下面****************************************************                          -->
-		<table tableName="t_base_site" domainObjectName="BaseSiteEntity" enableDeleteByExample="false"
+		<table tableName="T_MM_INCOME_COST_STATISTICS" domainObjectName="MmIncomeCostStatisticsEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
-		<table tableName="t_base_audit" domainObjectName="BaseAuditEntity" enableDeleteByExample="false"
+		<table tableName="T_MM_INCOME_COST_DETAIL" domainObjectName="MmIncomeCostDetailEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
-
+		<table tableName="T_MM_REPORT_FORM_INFO" domainObjectName="MmReportFormInfoEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="T_MM_SECTION_SL_TEMP" domainObjectName="MmSectionSlTempEntity" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
 
 
 
