@@ -66,6 +66,7 @@ public class GeneratorSqlmap {
 
 			System.out.println("service,controller,dao,newEntityWithColumn ,vo,entity ok了");
 			System.out.println("去D盘下generate_mybatisXXXXXXXXXXXXX下找代码.txt");
+			System.err.println("如果发现文件少了，基本都是因为配的数据源中没有相关的表");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
