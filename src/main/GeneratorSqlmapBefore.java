@@ -4,20 +4,13 @@ import util.StringUtil;
 
 public class GeneratorSqlmapBefore {
 
+    /**
+     * 多个表名之间用\n隔开
+     * @return
+     */
     public static String getStringByTableList() {
-        return "T_FIN_ACCOUNT\n" +
-                "T_FIN_ACCOUNT_CARD\n" +
-                "T_FIN_ACCOUNT_OPER_AUDIT\n" +
-                "T_FIN_ACCOUNT_OPER_INFO\n" +
-                "T_FIN_ACCOUNT_LIST_BAK\n" +
-                "T_FIN_ACCOUNT_LIST\n" +
-                "T_FIN_ACCOUNT_LIST_HISTORY\n" +
-                "T_FIN_ACCOUNT_TRADE_HISTORY\n" +
-                "T_FIN_ACCOUNT_OPER_HISTORY\n" +
-                "T_FIN_ACCOUNT_LIST_BAK2\n" +
-                "T_FIN_ACCOUNT_OPER_TEMP\n" +
-                "T_FIN_ACCOUNT_TRADE_DETAIL\n" +
-                "T_FIN_ACCOUNT_TRADE_TEMP\n";
+        return
+                "t_base_site\nt_base_audit";
     }
     public static String template(String tableName, String EntityName) {
         String temp = "\t<table tableName=\""+tableName+"\" domainObjectName=\""+EntityName+"\" enableDeleteByExample=\"false\"\n" +

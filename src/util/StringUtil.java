@@ -167,7 +167,7 @@ public class StringUtil {
     }
 
     public static String tableNameToEntityName(String tableName) {
-        if (tableName.indexOf("T_") >= 0) {
+        if (tableName.toUpperCase().indexOf("T_") >= 0) {
             tableName = tableName.substring(2);
         }
         int length = tableName.length();
@@ -188,7 +188,7 @@ public class StringUtil {
             }
 
         }
-        return sb.toString()+"Entity";
+        return sb.toString().trim()+"Entity";
     }
     public static void main(String[] args) {
         System.out.println(tableNameToEntityName("T_FIN_BIll"));

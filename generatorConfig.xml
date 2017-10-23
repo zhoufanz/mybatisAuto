@@ -31,8 +31,8 @@
 		-->
 		<!--oracle-->
 		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-						connectionURL="jdbc:oracle:thin:@172.16.35.4:1521/FOKF"
-						userId="YCGXSH" password="YCGXSH">
+						connectionURL="jdbc:oracle:thin:@172.16.36.21:1521/MM"
+						userId="YCGCE" password="YCGCE">
 			<property name="remarksReporting" value="true"></property>
 		</jdbcConnection>
 
@@ -65,71 +65,25 @@
 
 
 	   <!---table 放到下面****************************************************                          -->
-		<table tableName="T_FIN_ACCOUNT" domainObjectName="FinAccountEntity" enableDeleteByExample="false"
+		<table tableName="t_base_site" domainObjectName="BaseSiteEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
-		<table tableName="T_FIN_ACCOUNT_CARD" domainObjectName="FinAccountCardEntity" enableDeleteByExample="false"
+		<table tableName="t_base_audit" domainObjectName="BaseAuditEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
-		<table tableName="T_FIN_ACCOUNT_OPER_AUDIT" domainObjectName="FinAccountOperAuditEntity" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="T_FIN_ACCOUNT_OPER_INFO" domainObjectName="FinAccountOperInfoEntity" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="T_FIN_ACCOUNT_LIST_BAK" domainObjectName="FinAccountListBakEntity" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="T_FIN_ACCOUNT_LIST" domainObjectName="FinAccountListEntity" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="T_FIN_ACCOUNT_LIST_HISTORY" domainObjectName="FinAccountListHistoryEntity" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="T_FIN_ACCOUNT_TRADE_HISTORY" domainObjectName="FinAccountTradeHistoryEntity" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="T_FIN_ACCOUNT_OPER_HISTORY" domainObjectName="FinAccountOperHistoryEntity" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="T_FIN_ACCOUNT_LIST_BAK2" domainObjectName="FinAccountListBak2Entity" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="T_FIN_ACCOUNT_OPER_TEMP" domainObjectName="FinAccountOperTempEntity" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="T_FIN_ACCOUNT_TRADE_DETAIL" domainObjectName="FinAccountTradeDetailEntity" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="T_FIN_ACCOUNT_TRADE_TEMP" domainObjectName="FinAccountTradeTempEntity" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
+
+
+
+
+
+
+
+
+
 
 
 
