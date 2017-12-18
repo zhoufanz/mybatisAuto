@@ -8,7 +8,7 @@ public class ${entity}Service extends BaseServiceImpl<${entity}Entity> implement
     private I${entity}Dao ${lowerentity}Dao;
 
     @Override
-    void setBaseDao() {
-        super.baseDao = this.${lowerentity}Dao;
+    IBaseDao<${entity}Entity, String> getBaseDao() {
+        return this.${lowerentity}Dao;
     }
 }
