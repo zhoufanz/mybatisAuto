@@ -74,90 +74,26 @@ public class FormItemsToStoreParams{
 
     }
     public static String init(){
-        return "   items: [{\n" +
-                "                                xtype: 'radio',\n" +
-                "                                boxLabel: '账单号',\n" +
-                "                                name: 'code',\n" +
-                "                                inputValue: '0',\n" +
-                "                                checked: true\n" +
-                "                            }, {\n" +
-                "                                xtype: 'textarea',\n" +
-                "                                name: 'billCodeList',\n" +
-                "                                height: 130,\n" +
-                "                                width: 220\n" +
-                "                            }]\n" +
-                "                        }, {\n" +
-                "                            xtype: 'fieldset',\n" +
-                "                            title: '账单时间',\n" +
-                "                            defaults: {\n" +
-                "                                labelWidth: 80,\n" +
-                "                                width: 300\n" +
+        return " {\n" +
+                "                                name: 'id',\n" +
+                "                                fieldLabel: 'id'\n" +
                 "                            },\n" +
-                "                            items: [\n" +
-                "                                {\n" +
-                "                                    xtype: 'datetimefield_date97',\n" +
-                "                                    name: 'beginDate',\n" +
-                "                                    id: 'monthlyPairBillingStatement_beginDate',\n" +
-                "                                    fieldLabel: '开始时间',\n" +
-                "                                    format: 'Y-m-d H:i:s',\n" +
-                "                                    dateConfig: {\n" +
-                "                                        el: 'monthlyPairBillingStatement_beginDate-inputEl',\n" +
-                "                                        dateFmt: 'yyyy-MM-dd HH:mi:ss'\n" +
-                "                                    },\n" +
-                "                                    editable: true,\n" +
-                "                                    allowBlank: false,\n" +
-                "                                    time: true,\n" +
-                "                                    value: fosp.monthlyPairBillingStatement.formatDefaultDate(true, fosp.monthlyPairBillingStatement.FORMAT_TIME),\n" +
-                "                                    dateRange: {\n" +
-                "                                        begin: 'monthlyPairBillingStatement_beginDate',\n" +
-                "                                        end: 'monthlyPairBillingStatement_endDate'\n" +
-                "                                    },\n" +
-                "                                    vtype: 'monthlyPairBillingStatement_dateRange'\n" +
-                "                                }, {\n" +
-                "                                    xtype: 'datetimefield_date97',\n" +
-                "                                    id: 'monthlyPairBillingStatement_endDate',\n" +
-                "                                    name: 'endDate',\n" +
-                "                                    fieldLabel: '结束时间',\n" +
-                "                                    format: 'Y-m-d H:i:s',\n" +
-                "                                    dateConfig: {\n" +
-                "                                        el: 'monthlyPairBillingStatement_endDate-inputEl',\n" +
-                "                                        dateFmt: 'yyyy-MM-dd HH:mi:ss'\n" +
-                "                                    },\n" +
-                "                                    editable: true,\n" +
-                "                                    allowBlank: false,\n" +
-                "                                    time: true,\n" +
-                "                                    value: fosp.monthlyPairBillingStatement.formatDefaultDate(false, fosp.monthlyPairBillingStatement.FORMAT_TIME),\n" +
-                "                                    dateRange: {\n" +
-                "                                        begin: 'monthlyPairBillingStatement_beginDate',\n" +
-                "                                        end: 'monthlyPairBillingStatement_endDate'\n" +
-                "                                    },\n" +
-                "                                    vtype: 'monthlyPairBillingStatement_dateRange'\n" +
-                "                                }]\n" +
-                "                        }, {\n" +
-                "                            xtype: 'fieldcontainer',\n" +
-                "                            items: [{\n" +
-                "                                xtype: 'commonSiteSelector',\n" +
-                "                                name: 'sendCode',\n" +
-                "                                fieldLabel: '所属站点'\n" +
-                "                            }, {\n" +
-                "                                xtype: \"commonCustomerSelector\",\n" +
-                "                                name: 'customerCode',\n" +
-                "                                fieldLabel: '客户编号'\n" +
-                "                            }, {\n" +
-                "                                xtype: 'textfield',\n" +
-                "                                name: 'customerName',\n" +
-                "                                fieldLabel: '客户名称'\n" +
-                "                            }]\n" +
-                "                        }, {\n" +
-                "                            xtype: 'fieldcontainer',\n" +
-                "                            items: [{\n" +
-                "                                name: 'bizType',\n" +
-                "                                fieldLabel: '状态',\n" +
-                "                                labelWidth: 60,\n" +
-                "                                xtype: \"dictcombo\",\n" +
-                "                                dictType: 'BIZ_TYPE',\n" +
+                "                            {\n" +
+                "                                xtype : \"commonSiteSelector\",\n" +
+                "                                name : 'q_str_sendSiteCode',\n" +
+                "                                columnWidth:0.2,\n" +
+                "                                allowBlank: false,\n" +
+                "                                fieldLabel : '网点编号'\n" +
+                "                            },\n" +
+                "                            {\n" +
+                "                                xtype: 'dictcombo',\n" +
+                "                                name: 'pickGoodsType',\n" +
+                "                                dictType: 'FIN_ACCOUNT_LIST_PICK_GOODS_TYPE',\n" +
+                "                                fieldLabel: '派件方式',\n" +
+                "                                allowBlank: true,\n" +
                 "                                editable: false,\n" +
-                "                                anyRecords: [{'valueCode': '', 'valueName': '全部'}],\n" +
-                "                            }, {";
+                "                                anyRecords:[{'valueCode':'','valueName':'全部'}],\n" +
+                "                                validateOnBlur: true\n" +
+                "                            }";
     }
 }

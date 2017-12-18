@@ -24,7 +24,8 @@ public class ContinueGenerate {
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\dao\\impl\\",
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\newEntityWithColumn\\",
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\vo\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\oldEntityWithNoColumn\\"
+                "D:\\generate_mybatisXXXXXXXXXXXXX\\oldEntityWithNoColumn\\",
+                "D:\\generate_mybatisXXXXXXXXXXXXX\\service\\implBase\\"
         };
         for (int i = 0; i < generateTargetPath.length; i++) {
             File file = new File(generateTargetPath[i]);
@@ -44,6 +45,11 @@ public class ContinueGenerate {
     private static String[] serviceImplTemp = {
             "serviceImpl.ftl",
             "org.java.service.impl",
+            "Service"
+    };
+    private static String[] serviceImplTempBase = {
+            "serviceImplBase.ftl",
+            "org.java.service.base.impl",
             "Service"
     };
     //生成controller控制类的模板,包名,类后缀
@@ -90,6 +96,8 @@ public class ContinueGenerate {
             create(controllerTemp[0], controllerTemp[1], entity, generateTargetPath[2] + entity + controllerTemp[2] + ".java");
             create(daoTemp[0], daoTemp[1], entity, generateTargetPath[3] + "I" + entity + daoTemp[2] + ".java");
             create(daoImplTemp[0], daoImplTemp[1], entity, generateTargetPath[4] + "I" + entity + daoImplTemp[2] + ".xml");
+            create(serviceImplTempBase[0], serviceImplTempBase[1], entity, generateTargetPath[8] + entity + serviceImplTempBase[2] + ".java");
+
         }
     }
 

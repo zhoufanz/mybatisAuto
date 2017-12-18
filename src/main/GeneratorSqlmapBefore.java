@@ -10,24 +10,12 @@ public class GeneratorSqlmapBefore {
      */
     public static String getStringByTableList() {
         return
-                "T_MM_APPLICATION_DETAIL\n" +
-                        "T_MM_APPLICATION\n" +
-                        "T_MM_PURCHASE_PRICE_HISTORY\n" +
-                        "T_MM_SECTION_DETAIL\n" +
-                        "T_MM_SECTION\n" +
-                        "T_MM_PRIZE_DEPART_DETAIL\n" +
-                        "T_MM_PRIZE_DETAILE\n" +
-                        "T_MM_PRIZE\n" +
-                        "T_MM_SECTION_SL\n" +
-                        "T_MM_REPORT_FORM\n" +
-                        "T_MM_ADD_STOCK_DETAIL\n" +
-                        "T_MM_ADD_STOCK\n" +
-                        "T_MM_STOCK\n" +
-                        "T_MM_MATTER_CLASS\n" +
-                        "T_MM_INCOME_COST_STATISTICS\n" +
-                        "T_MM_INCOME_COST_DETAIL\n" +
-                        "T_MM_REPORT_FORM_INFO\n" +
-                        "T_MM_SECTION_SL_TEMP\n";
+                "TB_ORG_ORGUNIT\n" +
+                        "TB_ORG_UNITRELATION\n" +
+                        "TB_ORG_POSITION\n" +
+                        "TB_POS_RELATION\n" +
+                        "TB_STA_EMP\n" +
+                        "TB_STA_EMP_ORG";
     }
     public static String template(String tableName, String EntityName) {
         String temp = "\t<table tableName=\""+tableName.trim()+"\" domainObjectName=\""+EntityName.trim()+"\" enableDeleteByExample=\"false\"\n" +
