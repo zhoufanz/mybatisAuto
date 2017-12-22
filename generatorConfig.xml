@@ -31,8 +31,8 @@
 		-->
 		<!--oracle-->
 		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-						connectionURL="jdbc:oracle:thin:@172.16.36.19:1521/hcm"
-						userId="HCM" password="HCM2017">
+						connectionURL="jdbc:oracle:thin:@172.16.36.22:1521/R_OP_D"
+						userId="OPC" password="OPC">
 			<property name="remarksReporting" value="true"></property>
 		</jdbcConnection>
 
@@ -65,37 +65,36 @@
 
 
 	   <!---table 放到下面****************************************************                          -->
-		<table tableName="TB_ORG_ORGUNIT" domainObjectName="TbOrgOrgunitEntity" enableDeleteByExample="false"
+		<table tableName="T_BILL_GOODS" domainObjectName="BillGoodsEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
-		<table tableName="TB_ORG_UNITRELATION" domainObjectName="TbOrgUnitrelationEntity" enableDeleteByExample="false"
+		<table tableName="T_BILL_BASIC" domainObjectName="BillBasicEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
-		<table tableName="TB_ORG_POSITION" domainObjectName="TbOrgPositionEntity" enableDeleteByExample="false"
+		<table tableName="T_BILL_CHARGE" domainObjectName="BillChargeEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
-		<table tableName="TB_POS_RELATION" domainObjectName="TbPosRelationEntity" enableDeleteByExample="false"
+		<table tableName="T_BILL_SEND" domainObjectName="BillSendEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
-		<table tableName="TB_STA_EMP" domainObjectName="TbStaEmpEntity" enableDeleteByExample="false"
+		<table tableName="T_BILL_RECEIVE" domainObjectName="BillReceiveEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
-		<table tableName="TB_STA_EMP_ORG" domainObjectName="TbStaEmpOrgEntity" enableDeleteByExample="false"
+		<table tableName="T_OP_SIGN" domainObjectName="OpSignEntity" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
-
 
 
 

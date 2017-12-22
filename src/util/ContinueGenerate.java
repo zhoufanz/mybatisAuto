@@ -126,6 +126,7 @@ public class ContinueGenerate {
 
                     StringBuilder sb = new StringBuilder();
                     String line = null;
+                    int privateCount=0;
                     while ((line = bre.readLine()) != null) {
 
                         //字段列
@@ -159,6 +160,7 @@ public class ContinueGenerate {
                         }
 
                         if (line.indexOf("private ") != -1) {
+                            privateCount++;
                             //空格数量
                             int number = line.indexOf("private");
 
@@ -177,12 +179,16 @@ public class ContinueGenerate {
                             String column = map.get(filed.trim());
 
                             //根据xml文件获取column
-                            if (column != null) {
-                                if (column.toUpperCase().equals("ID")) {
+                            if (column != null&&privateCount==1) {
+                                if (column.toUpperCase().contains("ID")) {
                                     sb.append("@Id" + "\n");
                                 }
                             }
-                            sb.append("@Column(" + column + ")" + "\n");
+                            if (privateCount == 1) {
+                                sb.append("\t@Column(" + column + ")" + "\n");
+                            } else {
+                                sb.append("@Column(" + column + ")" + "\n");
+                            }
                         }
                         sb.append(line + "\n");
                     }
