@@ -61,13 +61,31 @@ public class ModelFieldsToGridColumn {
     }
 
     public static String init(){
-        return "//主键ID\n" +
-                "{name:'id',type:'string'},\n" +
+        return "        //id\n" +
+                "        {name:'id',type:'string'},\n" +
                 "//网点编号\n" +
-                "{name:'siteCode',type:'string'},\n" +
-                "//折扣值\n" +
-                "{name:'discount',type:'string'},\n" +
-                "//派件方式 （对应数据字典：FIN_ACCOUNT_LIST_PICK_GOODS_TYPE）\n" +
-                "{name:'pickGoodsType',type:'string'}";
+                "        {name:'siteCode',type:'string'},\n" +
+                "//0否)\n" +
+                "        {name:'blGould',type:'string'},\n" +
+                "//纬度\n" +
+                "        {name:'latitude',type:'string'},\n" +
+                "//经度\n" +
+                "        {name:'longitude',type:'string'},\n" +
+                "//创建时间\n" +
+                "        {name:'createTime',type:'date',convert: dateConvert},\n" +
+                "//创建人编号\n" +
+                "        {name:'createUserCode',type:'string'},\n" +
+                "//创建人名称\n" +
+                "        {name:'createUserName',type:'string'},\n" +
+                "//修改时间\n" +
+                "        {name:'modifyTime',type:'date',convert: dateConvert},\n" +
+                "//修改人编号\n" +
+                "        {name:'modifyUserCode',type:'string'},\n" +
+                "//修改人名称\n" +
+                "        {name:'modifyUserName',type:'string'},\n" +
+                "//网点简称\n" +
+                "        {name:'siteNameShort',type:'string'},\n" +
+                "//网点类型\n" +
+                "        {name:'siteKind',type:'string'}";
     }
 }

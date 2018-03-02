@@ -73,23 +73,76 @@ public class JavaVoToExtModel {
     }
     public static String init(){
         return "/**\n" +
-                "     * 主键ID\n" +
+                "     * id\n" +
                 "     */\n" +
+                "    @Id\n" +
+                "\t@Column(\"ID\")\n" +
                 "    private String id;\n" +
                 "\n" +
                 "    /**\n" +
                 "     * 网点编号\n" +
                 "     */\n" +
+                "    @Column(\"SITE_CODE\")\n" +
                 "    private String siteCode;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 折扣值\n" +
+                "     * 是否高德打点(1是/0否)\n" +
                 "     */\n" +
-                "    private BigDecimal discount;\n" +
+                "    @Column(\"BL_GOULD\")\n" +
+                "    private Integer blGould;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 派件方式 （对应数据字典：FIN_ACCOUNT_LIST_PICK_GOODS_TYPE）\n" +
+                "     * 纬度\n" +
                 "     */\n" +
-                "    private String pickGoodsType;";
+                "    @Column(\"LATITUDE\")\n" +
+                "    private String latitude;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 经度\n" +
+                "     */\n" +
+                "    @Column(\"LONGITUDE\")\n" +
+                "    private String longitude;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 创建时间\n" +
+                "     */\n" +
+                "    @Column(\"CREATE_TIME\")\n" +
+                "    private Date createTime;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 创建人编号\n" +
+                "     */\n" +
+                "    @Column(\"CREATE_USER_CODE\")\n" +
+                "    private String createUserCode;\n" +
+                "    /**\n" +
+                "     * 创建人名称\n" +
+                "     */\n" +
+                "    @Column(\"CREATE_USER_NAME\")\n" +
+                "    private String createUserName;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 修改时间\n" +
+                "     */\n" +
+                "    @Column(\"MODIFY_TIME\")\n" +
+                "    private Date modifyTime;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 修改人编号\n" +
+                "     */\n" +
+                "    @Column(\"MODIFY_USER_CODE\")\n" +
+                "    private String modifyUserCode;\n" +
+                "    /**\n" +
+                "     * 修改人名称\n" +
+                "     */\n" +
+                "    @Column(\"MODIFY_USER_NAME\")\n" +
+                "    private String modifyUserName;\n" +
+                "    /**\n" +
+                "     * 网点简称\n" +
+                "     */\n" +
+                "    private String siteNameShort;\n" +
+                "    /**\n" +
+                "     * 网点类型\n" +
+                "     */\n" +
+                "    private Integer siteKind;";
     }
 }

@@ -74,26 +74,39 @@ public class FormItemsToStoreParams{
 
     }
     public static String init(){
-        return " {\n" +
-                "                                name: 'id',\n" +
-                "                                fieldLabel: 'id'\n" +
-                "                            },\n" +
-                "                            {\n" +
-                "                                xtype : \"commonSiteSelector\",\n" +
-                "                                name : 'q_str_sendSiteCode',\n" +
-                "                                columnWidth:0.2,\n" +
-                "                                allowBlank: false,\n" +
-                "                                fieldLabel : '网点编号'\n" +
-                "                            },\n" +
-                "                            {\n" +
-                "                                xtype: 'dictcombo',\n" +
-                "                                name: 'pickGoodsType',\n" +
-                "                                dictType: 'FIN_ACCOUNT_LIST_PICK_GOODS_TYPE',\n" +
-                "                                fieldLabel: '派件方式',\n" +
-                "                                allowBlank: true,\n" +
-                "                                editable: false,\n" +
-                "                                anyRecords:[{'valueCode':'','valueName':'全部'}],\n" +
-                "                                validateOnBlur: true\n" +
-                "                            }";
+        return "  {\n" +
+                "                name: 'bankCode',\n" +
+                "                fieldLabel: '网点编号'\n" +
+                "            },\n" +
+                "            {\n" +
+                "                name: 'bankName',\n" +
+                "                fieldLabel: '网点简称'\n" +
+                "            },\n" +
+                "            {\n" +
+                "                name: 'longitude',\n" +
+                "                fieldLabel: '经度',\n" +
+                "            },\n" +
+                "            {\n" +
+                "                name: 'latitude',\n" +
+                "                fieldLabel: '纬度',\n" +
+                "            }\n" +
+                "            {\n" +
+                "                xtype: 'dictcombo',\n" +
+                "                dictType: 'BLFLAG',\n" +
+                "                name: 'blGould',\n" +
+                "                anyRecords: [{'valueCode': '', 'valueName': '全部'}],\n" +
+                "                fieldLabel: '是否启用',\n" +
+                "                editable: false,\n" +
+                "                value: \"\"\n" +
+                "            },\n" +
+                "            {\n" +
+                "                xtype: 'dictcombo',\n" +
+                "                dictType: 'BLFLAG',\n" +
+                "                name: 'SITE_KIND',\n" +
+                "                anyRecords: [{'valueCode': '', 'valueName': '全部'}],\n" +
+                "                fieldLabel: '网点类型',\n" +
+                "                editable: false,\n" +
+                "                value: \"\"\n" +
+                "            }";
     }
 }

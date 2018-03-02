@@ -184,7 +184,7 @@ public class ContinueGenerate {
                                     sb.append("@Id" + "\n");
                                 }
                             }
-                            if (privateCount == 1) {
+                            if (privateCount == 1&&column.toUpperCase().contains("ID")) {
                                 sb.append("\t@Column(" + column + ")" + "\n");
                             } else {
                                 sb.append("@Column(" + column + ")" + "\n");
