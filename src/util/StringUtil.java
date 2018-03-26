@@ -167,8 +167,10 @@ public class StringUtil {
     }
 //
     public static String tableNameToEntityName(String tableName) {
-        if (tableName.toUpperCase().indexOf("T_") >= 0) {
+        if (tableName.toUpperCase().indexOf("T_") == 0) {
             tableName = tableName.substring(2);
+        }else if(tableName.toUpperCase().indexOf("TB_") == 0){
+            tableName = tableName.substring(3);
         }
         int length = tableName.length();
         String s = tableName.toLowerCase();
