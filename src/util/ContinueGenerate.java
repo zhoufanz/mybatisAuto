@@ -20,12 +20,12 @@ public class ContinueGenerate {
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\service\\",
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\service\\impl\\",
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\controller\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\dao\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\dao\\impl\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\newEntityWithColumn\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\vo\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\oldEntityWithNoColumn\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\service\\implBase\\"
+//                "D:\\generate_mybatisXXXXXXXXXXXXX\\dao\\",
+//                "D:\\generate_mybatisXXXXXXXXXXXXX\\dao\\impl\\",
+//                "D:\\generate_mybatisXXXXXXXXXXXXX\\newEntityWithColumn\\",
+                "D:\\generate_mybatisXXXXXXXXXXXXX\\dto\\",
+//                "D:\\generate_mybatisXXXXXXXXXXXXX\\oldEntityWithNoColumn\\",
+//                "D:\\generate_mybatisXXXXXXXXXXXXX\\service\\implBase\\"
         };
         for (int i = 0; i < generateTargetPath.length; i++) {
             File file = new File(generateTargetPath[i]);
@@ -45,7 +45,7 @@ public class ContinueGenerate {
     private static String[] serviceImplTemp = {
             "serviceImpl.ftl",
             "org.java.service.impl",
-            "Service"
+            "ServiceImpl"
     };
     private static String[] serviceImplTempBase = {
             "serviceImplBase.ftl",
@@ -91,12 +91,12 @@ public class ContinueGenerate {
     public static void continueGenerate(String entityPath) {
         List<String> models = StringUtil.getDirectoryClassNameListString(entityPath);
         for (String entity : models) {
-            create(serviceTemp[0], serviceTemp[1], entity, generateTargetPath[0] + "I" + entity + serviceTemp[2] + ".java");
+            create(serviceTemp[0], serviceTemp[1], entity, generateTargetPath[0] + "" + entity + serviceTemp[2] + ".java");
             create(serviceImplTemp[0], serviceImplTemp[1], entity, generateTargetPath[1] + entity + serviceImplTemp[2] + ".java");
             create(controllerTemp[0], controllerTemp[1], entity, generateTargetPath[2] + entity + controllerTemp[2] + ".java");
-            create(daoTemp[0], daoTemp[1], entity, generateTargetPath[3] + "I" + entity + daoTemp[2] + ".java");
-            create(daoImplTemp[0], daoImplTemp[1], entity, generateTargetPath[4] + "I" + entity + daoImplTemp[2] + ".xml");
-            create(serviceImplTempBase[0], serviceImplTempBase[1], entity, generateTargetPath[8] + entity + serviceImplTempBase[2] + ".java");
+//            create(daoTemp[0], daoTemp[1], entity, generateTargetPath[3] + "" + entity + daoTemp[2] + ".java");
+//            create(daoImplTemp[0], daoImplTemp[1], entity, generateTargetPath[4] + "" + entity + daoImplTemp[2] + ".xml");
+//            create(serviceImplTempBase[0], serviceImplTempBase[1], entity, generateTargetPath[8] + entity + serviceImplTempBase[2] + ".java");
 
         }
     }
@@ -117,7 +117,7 @@ public class ContinueGenerate {
 
                     int index = fileName.lastIndexOf("Entity");
                     if (index == -1) {
-                        throw new Exception("实体后缀必须为Entity");
+//                        throw new Exception("实体后缀必须为Entity");
                     }
 
                     //处理file
@@ -270,7 +270,7 @@ public class ContinueGenerate {
 
                     int index = fileName.lastIndexOf("Entity");
                     if (index == -1) {
-                        throw new Exception("实体后缀必须为Entity");
+//                        throw new Exception("实体后缀必须为Entity");
                     }
 
                     //处理file
@@ -289,8 +289,8 @@ public class ContinueGenerate {
                             String classLine = null;
                             int i1 = line.indexOf("{");
                             String s = line.substring(0, i1) + " implements Serializable {";
-                            int entity = s.lastIndexOf("Entity");
-                            String s1 = s.substring(0, entity) + "Vo" + s.substring(entity + "Entity".length() + 1);
+                            int entity = s.lastIndexOf("  implements");
+                            String s1 = s.substring(0, entity) + "DTO" + " implements Serializable {";
                             sb.append("\n");
                             sb.append(s1);
                             sb.append("\n");
@@ -307,9 +307,9 @@ public class ContinueGenerate {
 
                     //生成新文件
                     String voFileName = null;
-                    int begin = file.getName().indexOf("Entity");
-                    voFileName = file.getName().substring(0, begin) + "Vo.java";
-                    File newFile = new File(generateTargetPath[6] + "\\" + voFileName);
+                    int begin = file.getName().indexOf(".java");
+                    voFileName = file.getName().substring(0, begin) + "DTO.java";
+                    File newFile = new File(generateTargetPath[3] + "\\" + voFileName);
                     newFile.createNewFile();
 
                     FileWriter fileWriter = new FileWriter(newFile, true);
@@ -342,7 +342,7 @@ public class ContinueGenerate {
 
                     int index = fileName.lastIndexOf("Entity");
                     if (index == -1) {
-                        throw new Exception("实体后缀必须为Entity");
+                       // throw new Exception("实体后缀必须为Entity");
                     }
 
                     //处理file

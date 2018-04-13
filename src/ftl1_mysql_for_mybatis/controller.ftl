@@ -1,10 +1,10 @@
-import com.ycgwl.framework.springmvc.controller.AbstractController;
+import com.yung.opmanage.controller.base.BaseWebController;
 
 @Controller
-@RequestMapping("/mm")
-public class ${entity}Controller extends AbstractController{
+@RequestMapping("/coupon")
+public class ${entity}Controller extends BaseWebController{
 	
 	@Autowired
-	private I${entity}Service ${lowerentity}Service;
+	private ${entity}Service ${lowerentity}Service;
 	
 }

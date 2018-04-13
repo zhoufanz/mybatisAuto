@@ -88,9 +88,9 @@ public class StringUtil {
             File[] files = directoryFile.listFiles();
             for (int i = 0; i < files.length; i++) {
                 String fileName = files[i].getName();
-                int index = fileName.lastIndexOf("Entity");
+                int index = fileName.lastIndexOf(".java");
                 if (index == -1) {
-                    throw new Exception("实体后缀必须为Entity");
+//                    throw new Exception("实体后缀必须为Entity");
                 }
                 fileName = fileName.substring(0, index);
                 //实体类
@@ -190,7 +190,7 @@ public class StringUtil {
             }
 
         }
-        return sb.toString().trim()+"Entity";
+        return sb.toString().trim()+"";
     }
     public static void main(String[] args) {
         System.out.println(tableNameToEntityName("T_FIN_BIll"));

@@ -1,5 +1,5 @@
 
 
-public interface I${entity}Service extends IBaseService<${entity}Entity, String>{
+public interface ${entity}Service{
 
 }

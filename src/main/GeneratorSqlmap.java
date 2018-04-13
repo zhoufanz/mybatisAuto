@@ -56,15 +56,15 @@ public class GeneratorSqlmap {
 			ContinueGenerate.continueGenerate(getEntityPath());
 
 			//生成newEntityWithColumn
-			ContinueGenerate.continueGenerateNewEntity(getEntityPath());
+//			ContinueGenerate.continueGenerateNewEntity(getEntityPath());
 
 			//继续生成vo
 			ContinueGenerate.continueGenerateVo(getEntityPath());
 
 			//生成没有column的entity
-			ContinueGenerate.continueGenerateEntity(getEntityPath());
+//			ContinueGenerate.continueGenerateEntity(getEntityPath());
 
-			System.out.println("service,controller,dao,newEntityWithColumn ,vo,entity ok了");
+			System.out.println("service,controller,dao,newEntityWithColumn ,dto,entity ok了");
 			System.out.println("去D盘下generate_mybatisXXXXXXXXXXXXX下找代码.txt");
 			System.err.println("如果发现文件少了，基本都是因为配的数据源中没有相关的表");
 		} catch (Exception e) {

@@ -18,11 +18,11 @@
 
 
 		<!-- mysql -->
-		<!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.213.201:3306/junyao" userId="root"
-                        password="u6nERk5+G=Q:">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.1.166.48:3306/yg_coupon?noAccessToProcedureBodies=true" userId="dev_user"
+                        password="yungui@2017">
                     <property name="useInformationSchema" value="true"></property>
-        </jdbcConnection>-->
+        </jdbcConnection>
 		<!-- sqlserver -->
 		<!--<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
                         connectionURL="jdbc:sqlserver://172.16.254.10:1433;DatabaseName=yccenter" userId="zbtmstoad0511"
@@ -37,11 +37,11 @@
 			<property name="remarksReporting" value="true"></property>
 		</jdbcConnection>-->
 
-		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+		<!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
 						connectionURL="jdbc:oracle:thin:@172.16.36.2:1521/BDM"
 						userId="FOKF" password="FOKF">
 			<property name="remarksReporting" value="true"></property>
-		</jdbcConnection><!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+		</jdbcConnection>--><!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
 						connectionURL="jdbc:oracle:thin:@172.16.36.22:1521/R_OP_D"
 						userId="OPC" password="OPC">
 			<property name="remarksReporting" value="true"></property>
@@ -76,8 +76,45 @@
 
 
 	   <!---table 放到下面****************************************************                          -->
-		<table tableName="T_BASE_SITE_DETAIL_GOULD" domainObjectName="BaseSiteDetailGouldEntity" enableDeleteByExample="false"
+		<table tableName="oupon" domainObjectName="Oupon" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   enableDeleteByPrimaryKey="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="coupon_apply" domainObjectName="CouponApply" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   enableDeleteByPrimaryKey="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="coupon_consume_bill" domainObjectName="CouponConsumeBill" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   enableDeleteByPrimaryKey="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="customer_service_budget" domainObjectName="CustomerServiceBudget" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   enableDeleteByPrimaryKey="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="strategy" domainObjectName="Strategy" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   enableDeleteByPrimaryKey="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="strategy_rate" domainObjectName="StrategyRate" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   enableDeleteByPrimaryKey="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+		<table tableName="strategy_regions" domainObjectName="StrategyRegions" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   enableDeleteByPrimaryKey="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>

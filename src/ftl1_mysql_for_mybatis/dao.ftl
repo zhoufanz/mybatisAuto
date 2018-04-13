@@ -1,4 +1,4 @@
 
-public interface I${entity}Dao extends IBaseDao<${entity}Entity, String>{
+public interface ${entity}Dao extends IBaseDao<${entity}Entity, String>{
 
 }

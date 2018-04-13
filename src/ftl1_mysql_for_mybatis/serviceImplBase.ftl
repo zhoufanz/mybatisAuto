@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 public class ${entity}Service extends BaseServiceImpl<${entity}Entity> implements I${entity}Service {
 
     @Autowired
-    private I${entity}Dao ${lowerentity}Dao;
+    private ${entity}Dao ${lowerentity}Dao;
 
     @Override
     IBaseDao<${entity}Entity, String> getBaseDao() {

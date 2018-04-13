@@ -2,8 +2,8 @@
 import org.springframework.stereotype.Service;
 
 @Service("${lowerentity}Service")
-public class ${entity}Service implements I${entity}Service {
+public class ${entity}ServiceImpl implements ${entity}Service {
 
     @Autowired
-    private I${entity}Dao ${lowerentity}Dao;
+    private ${entity}Mapper ${lowerentity}Mapper;
 }
