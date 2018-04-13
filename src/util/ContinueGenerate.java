@@ -258,7 +258,7 @@ public class ContinueGenerate {
                             int i1 = line.indexOf("{");
                             String s = line.substring(0, i1) + " implements Serializable {";
                             int entity = s.lastIndexOf("  implements");
-                            String s1 = s.substring(0, entity) + "DTO" + " implements Serializable {";
+                            String s1 = s.substring(0, entity) + "" + " implements Serializable {";
                             sb.append("\n");
                             sb.append(s1);
                             sb.append("\n");

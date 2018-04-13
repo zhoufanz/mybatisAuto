@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5103bd6a-2350-4515-9ba0-605c375ba73d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/GeneratorSqlmap.java" afterPath="$PROJECT_DIR$/src/main/GeneratorSqlmap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/ContinueGenerate.java" afterPath="$PROJECT_DIR$/src/util/ContinueGenerate.java" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -55,11 +54,12 @@
       <file leaf-file-name="ContinueGenerate.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/util/ContinueGenerate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="271" column="0" lean-forward="true" selection-start-line="271" selection-start-column="0" selection-end-line="271" selection-end-column="0" />
+            <state relative-caret-position="470">
+              <caret line="285" column="25" lean-forward="false" selection-start-line="285" selection-start-column="25" selection-end-line="285" selection-end-column="25" />
               <folding>
                 <element signature="e#2442#2458#0" expanded="true" />
                 <element signature="method#continueGenerateDTO#0;class#ContinueGenerate#0" expanded="false" />
+                <element signature="method#continueGenerateNewMapperXml#0;class#ContinueGenerate#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1099,11 +1099,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523643157360</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="添加baseimpl">
+      <created>1523643608057</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1523643608057</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136317000" />
+    <option name="totallyTimeSpent" value="136993000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1196,10 +1203,36 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/util/ContinueGenerate.java</url>
+          <line>231</line>
+          <properties />
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/util/ContinueGenerate.java</url>
+          <line>256</line>
+          <properties />
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/util/ContinueGenerate.java</url>
+          <line>279</line>
+          <properties />
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/util/ContinueGenerate.java</url>
+          <line>277</line>
+          <properties />
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="105" />
+      <option name="time" value="109" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1499,11 +1532,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/ContinueGenerate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="271" column="0" lean-forward="true" selection-start-line="271" selection-start-column="0" selection-end-line="271" selection-end-column="0" />
+        <state relative-caret-position="470">
+          <caret line="285" column="25" lean-forward="false" selection-start-line="285" selection-start-column="25" selection-end-line="285" selection-end-column="25" />
           <folding>
             <element signature="e#2442#2458#0" expanded="true" />
             <element signature="method#continueGenerateDTO#0;class#ContinueGenerate#0" expanded="false" />
+            <element signature="method#continueGenerateNewMapperXml#0;class#ContinueGenerate#0" expanded="false" />
           </folding>
         </state>
       </provider>
