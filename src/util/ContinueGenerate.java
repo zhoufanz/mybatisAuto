@@ -2,6 +2,7 @@ package util;
 
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,12 +21,9 @@ public class ContinueGenerate {
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\service\\",
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\service\\impl\\",
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\controller\\",
-//                "D:\\generate_mybatisXXXXXXXXXXXXX\\dao\\",
-//                "D:\\generate_mybatisXXXXXXXXXXXXX\\dao\\impl\\",
-//                "D:\\generate_mybatisXXXXXXXXXXXXX\\newEntityWithColumn\\",
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\dto\\",
-//                "D:\\generate_mybatisXXXXXXXXXXXXX\\oldEntityWithNoColumn\\",
-//                "D:\\generate_mybatisXXXXXXXXXXXXX\\service\\implBase\\"
+                "D:\\generate_mybatisXXXXXXXXXXXXX\\mapperJava\\",
+                "D:\\generate_mybatisXXXXXXXXXXXXX\\mapperXml\\"
         };
         for (int i = 0; i < generateTargetPath.length; i++) {
             File file = new File(generateTargetPath[i]);
@@ -102,7 +100,7 @@ public class ContinueGenerate {
     }
 
     //基于已经生成的实体类继续生成 newEntityWithColumn
-    public static void continueGenerateNewEntity(String entityPath) {
+    public static void continueGenerateNewMapperJava(String entityPath) {
         File directoryFile = new File(entityPath);
         try {
             File[] files = directoryFile.listFiles();
@@ -110,91 +108,30 @@ public class ContinueGenerate {
                 try {
                     String fileName = files[i].getName();
 
-                    //根据xml文件获取column
-                    String prePath = files[i].getPath().substring(0, files[i].getPath().indexOf("entity"));
-                    prePath = prePath + "dao\\" + fileName.substring(0, fileName.indexOf(".")) + "Mapper.xml";
-                    Map<String, String> map = getColumnMapWithXml(prePath);
-
-                    int index = fileName.lastIndexOf("Entity");
-                    if (index == -1) {
-//                        throw new Exception("实体后缀必须为Entity");
+                    if(!fileName.contains(".java")){
+                        continue;
                     }
 
-                    //处理file
                     File file = files[i];
                     BufferedReader bre = new BufferedReader(new FileReader(file));
 
                     StringBuilder sb = new StringBuilder();
                     String line = null;
-                    int privateCount=0;
+                    int ab=-1;
+                    List<String> list = new ArrayList<>();
                     while ((line = bre.readLine()) != null) {
 
-                        //字段列
-                        //从第二个空格截到;
-                        // private Short blLockFlag;
-                        if (line.indexOf(" class ") != -1) {
-                            sb.append("import org.mybatis.spring.annotation.Column;\n" +
-                                    "import org.mybatis.spring.annotation.Table;\n" +
-                                    "\n" +
-                                    "import java.io.Serializable;\n\n");
-
-                            String substring = file.getName().substring(0, file.getName().indexOf("."));
-
-                            String tableName = "T" + StringUtil.camelToUnderline(substring).toUpperCase();
-                            int i2 = tableName.lastIndexOf("_");
-                            tableName = tableName.substring(0, i2);
-                            sb.append("@Table(value = \"" + tableName + "\", dynamicInsert = true, dynamicUpdate = true)");
-
-                            String classLine = null;
-                            int i1 = line.indexOf("{");
-                            String s = line.substring(0, i1) + " implements Serializable {";
-                            sb.append("\n");
-                            sb.append(s);
-                            sb.append("\n");
-                            sb.append("\n");
-                            sb.append("    private static final long serialVersionUID = -8177101062986808601L;");
-                            sb.append("\n");
-                            sb.append("\n");
-                            continue;
-
+                        if (line.contains("insert(")||line.contains("updateByPrimaryKey(")||line.contains("*")){
+                           continue;
                         }
-
-                        if (line.indexOf("private ") != -1) {
-                            privateCount++;
-                            //空格数量
-                            int number = line.indexOf("private");
-
-                            String copyLine = new String(line);
-                            copyLine = copyLine.trim();
-                            String filed = null;
-                            try {
-                                filed = copyLine.substring(copyLine.indexOf(" ", "private ".length() + 2), copyLine.indexOf(";"));
-                            } catch (Exception ex) {
-                                ex.printStackTrace();
-                                System.out.println(line);
-                            }
-                            for (int j = 0; j < number; j++) {
-                                sb.append(" ");
-                            }
-                            String column = map.get(filed.trim());
-
-                            //根据xml文件获取column
-                            if (column != null&&privateCount==1) {
-                                if (column.toUpperCase().contains("ID")) {
-                                    sb.append("@Id" + "\n");
-                                }
-                            }
-                            if (privateCount == 1&&column.toUpperCase().contains("ID")) {
-                                sb.append("\t@Column(" + column + ")" + "\n");
-                            } else {
-                                sb.append("@Column(" + column + ")" + "\n");
-                            }
-                        }
-                        sb.append(line + "\n");
+                        list.add(line+"\n");
+                    }
+                    for (String s : list) {
+                        sb.append(s);
                     }
 
                     //生成新文件
-                    File newFile = new File(generateTargetPath[5] + "\\" + file.getName());
+                    File newFile = new File(generateTargetPath[4] + "\\" + file.getName());
                     newFile.createNewFile();
 
                     FileWriter fileWriter = new FileWriter(newFile, true);
@@ -216,48 +153,6 @@ public class ContinueGenerate {
         }
     }
 
-    private static Map<String, String> getColumnMapWithXml(String path) throws IOException {
-        File file = new File(path);
-        BufferedReader bre = new BufferedReader(new FileReader(file));
-
-        StringBuilder sb = new StringBuilder();
-        String line = null;
-        boolean flag = false;
-        boolean first = true;
-        Map<String, String> map = new HashMap<>();
-        while ((line = bre.readLine()) != null) {
-            if (line.indexOf("resultMap") != -1) {
-                flag = true;
-                if (first) {
-                    first = false;
-                    continue;
-                } else {
-                    break;
-                }
-            }
-            if (line.indexOf("//resultMap") != -1) {
-                flag = false;
-                break;
-            }
-            if (flag) {
-                try {
-                    line = line.trim();
-                    int begin = line.indexOf("\"") + 1;
-                    int end = line.indexOf("\"", begin);
-                    String value = line.substring(begin, end);
-
-                    int begin2 = line.indexOf("property");
-                    int end2 = line.indexOf("\"", begin2 + "property".length() + 2);
-                    String key = line.substring(begin2 + "property".length() + 2, end2);
-                    map.put(key, "\"" + value + "\"");
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                    System.out.println(ex.getMessage());
-                }
-            }
-        }
-        return map;
-    }
 
     //基于已经生成的实体类继续生成 vo
     public static void continueGenerateVo(String entityPath) {
@@ -332,7 +227,7 @@ public class ContinueGenerate {
     }
 
     //基于已经生成的实体类继续生成 entity
-    public static void continueGenerateEntity(String entityPath) {
+    public static void continueGenerateNewMapperXml(String entityPath) {
         File directoryFile = new File(entityPath);
         try {
             File[] files = directoryFile.listFiles();
@@ -340,41 +235,83 @@ public class ContinueGenerate {
                 try {
                     String fileName = files[i].getName();
 
-                    int index = fileName.lastIndexOf("Entity");
-                    if (index == -1) {
-                       // throw new Exception("实体后缀必须为Entity");
-                    }
+                    if (!fileName.contains(".xml")) {
+                        continue;
 
+
+                    }
                     //处理file
                     File file = files[i];
                     BufferedReader bre = new BufferedReader(new FileReader(file));
 
                     StringBuilder sb = new StringBuilder();
                     String line = null;
+                    List<String> list = new ArrayList<>();
+                    boolean flag=false;
+                    boolean nextNotNeedN=true;
+                    boolean isInsert=false;
+                    boolean updateByPrimaryKey=false;
                     while ((line = bre.readLine()) != null) {
-                        if (line.indexOf(" class ") != -1) {
 
-                            sb.append(
-                                    "import java.io.Serializable;\n\n");
-
-
-                            String classLine = null;
-                            int i1 = line.indexOf("{");
-                            String s = line.substring(0, i1) + " implements Serializable {";
-                            sb.append("\n");
-                            sb.append(s);
-                            sb.append("\n");
-                            sb.append("\n");
-                            sb.append("    private static final long serialVersionUID = -8177101062986808601L;");
-                            sb.append("\n");
-                            sb.append("\n");
+                        if (line.contains("<insert id=\"insert\"")) {
+                            flag=true;
+                            isInsert=true;
                             continue;
-
+                        }else{
+                            isInsert=false;
                         }
-                        sb.append(line + "\n");
+                        if (line.contains("</insert>")){
+                            flag = false;
+                        }
+
+                        if (line.contains("update id=\"updateByPrimaryKey\"")) {
+                            flag=true;
+                            updateByPrimaryKey=true;
+                            continue;
+                        }else{
+                            updateByPrimaryKey=false;
+                        }
+                        if (line.contains("</update>")){
+                            flag = false;
+                        }
+
+
+
+
+                        if (!flag) {
+                            if (isInsert||updateByPrimaryKey){
+                                continue;
+                            }
+                            if (line.contains("!= null\" >")) {
+                                String key=null;
+                                String beginStr = "<if test=\"";
+                                int begin = line.indexOf(beginStr);
+                                key= line.substring(begin + beginStr.length());
+
+                                String endStr = " != null\" >";
+                                int end = line.indexOf(endStr);
+                                key = line.substring(begin+beginStr.length(), end);
+                                String keyEnd=" and "+key+" !=''";
+                                line = line.substring(0, line.indexOf("\" >")) + keyEnd + "\" >";
+
+                            }
+
+                            if (line.contains("<if test")) {
+                                sb.append(line);
+                                nextNotNeedN=true;
+                            } else if (nextNotNeedN == true) {
+                                nextNotNeedN=false;
+                                sb.append(line.trim());
+                            }else if (line.contains("</if>")){
+                                sb.append(line.trim() + "\n");
+                            }else{
+                                sb.append(line + "\n");
+                            }
+                        }
+
                     }
 
-                    File newFile = new File(generateTargetPath[7] + "\\" + file.getName());
+                    File newFile = new File(generateTargetPath[5] + "\\" + file.getName());
                     newFile.createNewFile();
 
                     FileWriter fileWriter = new FileWriter(newFile, true);

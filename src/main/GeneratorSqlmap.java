@@ -25,23 +25,30 @@ public class GeneratorSqlmap {
 		Configuration config = cp.parseConfiguration(configFile);
 		//壳方法支持
 		DefaultShellCallback callback = new DefaultShellCallback(overwrite);
-		
+
 		MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config,
 				callback, warnings);
 		//生成
 		myBatisGenerator.generate(null);
 	}
 
+	public static final String path="/src/com/yung/coupon/";
+
 
 	//获得已经生成的实体类文件夹路径
-	private static String getEntityPath(){
-			return new File(System.getProperty("user.dir"),"/src/org/java/entity").getAbsolutePath();
+	private static String getEntityPath() {
+		return new File(System.getProperty("user.dir"), path+"domain").getAbsolutePath();
+	}
+
+	private static String getMapperPath1() {
+		return new File(System.getProperty("user.dir"), path+"dao").getAbsolutePath();
 	}
 
 
 	/**
 	 * 生成 前 将D盘下generate_mybatisXXXXXXXXXXXXX下 文件全部删除
 	 * 将当前项目下 org文件下文件全部删除
+	 *
 	 * @param args
 	 * @throws Exception
 	 */
@@ -55,14 +62,14 @@ public class GeneratorSqlmap {
 			//根据实体的文件夹目录继续生成11
 			ContinueGenerate.continueGenerate(getEntityPath());
 
-			//生成newEntityWithColumn
-//			ContinueGenerate.continueGenerateNewEntity(getEntityPath());
 
 			//继续生成vo
 			ContinueGenerate.continueGenerateVo(getEntityPath());
 
+			//生成newEntityWithColumn
+			ContinueGenerate.continueGenerateNewMapperJava(getMapperPath1());
 			//生成没有column的entity
-//			ContinueGenerate.continueGenerateEntity(getEntityPath());
+			ContinueGenerate.continueGenerateNewMapperXml(getMapperPath1());
 
 			System.out.println("service,controller,dao,newEntityWithColumn ,dto,entity ok了");
 			System.out.println("去D盘下generate_mybatisXXXXXXXXXXXXX下找代码.txt");
