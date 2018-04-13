@@ -32,7 +32,7 @@ public class GeneratorSqlmap {
 		myBatisGenerator.generate(null);
 	}
 
-	public static final String path="/src/com/yung/coupon/";
+	public static final String path="/src/com/yung/couponconfig/";
 
 
 	//获得已经生成的实体类文件夹路径

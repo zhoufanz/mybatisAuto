@@ -324,37 +324,40 @@ public class ContinueGenerate {
                     boolean nextNotNeedN=true;
                     boolean isInsert=false;
                     boolean updateByPrimaryKey=false;
+                    int updateCount=0;
+                    int insertCount=0;
                     while ((line = bre.readLine()) != null) {
 
                         if (line.contains("<insert id=\"insert\"")) {
                             flag=true;
-                            isInsert=true;
                             continue;
-                        }else{
-                            isInsert=false;
                         }
                         if (line.contains("</insert>")){
+                            insertCount++;
                             flag = false;
+                            if (insertCount == 1) {
+                                continue;
+                            }
+
                         }
 
                         if (line.contains("update id=\"updateByPrimaryKey\"")) {
                             flag=true;
-                            updateByPrimaryKey=true;
                             continue;
-                        }else{
-                            updateByPrimaryKey=false;
                         }
                         if (line.contains("</update>")){
+                            updateCount++;
                             flag = false;
+                            if (updateCount==2){
+                                continue;
+                            }
+
                         }
 
 
 
 
                         if (!flag) {
-                            if (isInsert||updateByPrimaryKey){
-                                continue;
-                            }
                             if (line.contains("!= null\" >")) {
                                 String key=null;
                                 String beginStr = "<if test=\"";

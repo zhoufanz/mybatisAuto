@@ -53,19 +53,19 @@
 			<property name="forceBigDecimals" value="false"/>
 		</javaTypeResolver>
 		<!-- targetProject:生成PO类的位置 -->
-		<javaModelGenerator targetProject=".\src" targetPackage="com.yung.coupon.domain">
+		<javaModelGenerator targetProject=".\src" targetPackage="com.yung.couponconfig.domain">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 			<!-- 从数据库返回的值被清理前后的空格 -->
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
         <!-- targetProject:mapper映射文件生成的位置 -->
-		<sqlMapGenerator targetProject=".\src" targetPackage="com.yung.coupon.dao">
+		<sqlMapGenerator targetProject=".\src" targetPackage="com.yung.couponconfig.dao">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
 		<!-- targetPackage：mapper接口生成的位置 -->
-		<javaClientGenerator type="XMLMAPPER" targetPackage="com.yung.coupon.dao"
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.yung.couponconfig.dao"
 			targetProject=".\src">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
