@@ -64,7 +64,8 @@ public class GeneratorSqlmap {
 
 
 			//继续生成vo
-			ContinueGenerate.continueGenerateVo(getEntityPath());
+			ContinueGenerate.continueGenerateDTO(getEntityPath());
+			ContinueGenerate.continueGenerateEntity(getEntityPath());
 
 			//生成newEntityWithColumn
 			ContinueGenerate.continueGenerateNewMapperJava(getMapperPath1());

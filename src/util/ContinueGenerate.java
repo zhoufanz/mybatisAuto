@@ -23,7 +23,9 @@ public class ContinueGenerate {
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\controller\\",
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\dto\\",
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\mapperJava\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\mapperXml\\"
+                "D:\\generate_mybatisXXXXXXXXXXXXX\\mapperXml\\",
+                "D:\\generate_mybatisXXXXXXXXXXXXX\\domain\\"
+
         };
         for (int i = 0; i < generateTargetPath.length; i++) {
             File file = new File(generateTargetPath[i]);
@@ -155,7 +157,7 @@ public class ContinueGenerate {
 
 
     //基于已经生成的实体类继续生成 vo
-    public static void continueGenerateVo(String entityPath) {
+    public static void continueGenerateDTO(String entityPath) {
         File directoryFile = new File(entityPath);
         try {
             File[] files = directoryFile.listFiles();
@@ -205,6 +207,77 @@ public class ContinueGenerate {
                     int begin = file.getName().indexOf(".java");
                     voFileName = file.getName().substring(0, begin) + "DTO.java";
                     File newFile = new File(generateTargetPath[3] + "\\" + voFileName);
+                    newFile.createNewFile();
+
+                    FileWriter fileWriter = new FileWriter(newFile, true);
+                    fileWriter.write(sb.toString());
+
+                    fileWriter.flush();
+
+                    fileWriter.close();
+                    bre.close();
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    System.out.println(ex.getMessage());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
+    //基于已经生成的实体类继续生成 vo
+    public static void continueGenerateEntity(String entityPath) {
+        File directoryFile = new File(entityPath);
+        try {
+            File[] files = directoryFile.listFiles();
+            for (int i = 0; i < files.length; i++) {
+                try {
+                    String fileName = files[i].getName();
+
+                    int index = fileName.lastIndexOf("Entity");
+                    if (index == -1) {
+//                        throw new Exception("实体后缀必须为Entity");
+                    }
+
+                    //处理file
+                    File file = files[i];
+                    BufferedReader bre = new BufferedReader(new FileReader(file));
+
+                    StringBuilder sb = new StringBuilder();
+                    String line = null;
+                    while ((line = bre.readLine()) != null) {
+
+                        if (line.indexOf(" class ") != -1) {
+                            sb.append(
+                                    "import java.io.Serializable;\n\n");
+
+
+                            String classLine = null;
+                            int i1 = line.indexOf("{");
+                            String s = line.substring(0, i1) + " implements Serializable {";
+                            int entity = s.lastIndexOf("  implements");
+                            String s1 = s.substring(0, entity) + "DTO" + " implements Serializable {";
+                            sb.append("\n");
+                            sb.append(s1);
+                            sb.append("\n");
+                            sb.append("\n");
+                            sb.append("    private static final long serialVersionUID = -8177101062986808601L;");
+                            sb.append("\n");
+                            sb.append("\n");
+                            continue;
+
+                        }
+
+                        sb.append(line + "\n");
+                    }
+
+                    //生成新文件
+                    String voFileName = null;
+                    int begin = file.getName().indexOf(".java");
+                    voFileName = file.getName().substring(0, begin) + ".java";
+                    File newFile = new File(generateTargetPath[6] + "\\" + voFileName);
                     newFile.createNewFile();
 
                     FileWriter fileWriter = new FileWriter(newFile, true);
