@@ -10,4 +10,19 @@ public class ${entity}ServiceImpl implements ${entity}Service {
 
     @Autowired
     private ${entity}Mapper ${lowerentity}Mapper;
+
+    @Override
+    public int insertSelective(${entity} ${lowerentity}) {
+        return this.${lowerentity}Mapper.insertSelective(${lowerentity});
+    }
+
+    @Override
+    public ${entity} selectByPrimaryKey(Integer id) {
+        return this.${lowerentity}Mapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public int updateByPrimaryKeySelective(${entity} ${lowerentity}) {
+        return this.${lowerentity}Mapper.updateByPrimaryKeySelective(${lowerentity});
+    }
 }

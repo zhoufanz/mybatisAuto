@@ -24,7 +24,8 @@ public class ContinueGenerate {
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\dto\\",
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\mapperJava\\",
                 "D:\\generate_mybatisXXXXXXXXXXXXX\\mapperXml\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\domain\\"
+                "D:\\generate_mybatisXXXXXXXXXXXXX\\domain\\",
+                "D:\\generate_mybatisXXXXXXXXXXXXX\\serviceTest\\"
 
         };
         for (int i = 0; i < generateTargetPath.length; i++) {
@@ -68,6 +69,11 @@ public class ContinueGenerate {
             "org.java.dao.impl",
             "Dao"
     };
+    private static String[] serviceTestTemp = {
+            "serviceImplTest.ftl",
+            "org.java.dao",
+            "ServiceImplTest"
+    };
 
     private static FreeMakerUtil freeMakerUtil = new FreeMakerUtil();
 
@@ -94,7 +100,7 @@ public class ContinueGenerate {
             create(serviceTemp[0], serviceTemp[1], entity, generateTargetPath[0] + "" + entity + serviceTemp[2] + ".java");
             create(serviceImplTemp[0], serviceImplTemp[1], entity, generateTargetPath[1] + entity + serviceImplTemp[2] + ".java");
             create(controllerTemp[0], controllerTemp[1], entity, generateTargetPath[2] + entity + controllerTemp[2] + ".java");
-//            create(daoTemp[0], daoTemp[1], entity, generateTargetPath[3] + "" + entity + daoTemp[2] + ".java");
+            create(serviceTestTemp[0], serviceTestTemp[1], entity, generateTargetPath[7] + "" + entity + serviceTestTemp[2] + ".java");
 //            create(daoImplTemp[0], daoImplTemp[1], entity, generateTargetPath[4] + "" + entity + daoImplTemp[2] + ".xml");
 //            create(serviceImplTempBase[0], serviceImplTempBase[1], entity, generateTargetPath[8] + entity + serviceImplTempBase[2] + ".java");
 
