@@ -7,8 +7,5 @@ import org.slf4j.LoggerFactory;
 public class ${entity}Controller extends BaseWebController{
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(${entity}Controller.class);
-
-	@Autowired
-	private ${entity}Service ${lowerentity}Service;
 	
 }
