@@ -73,7 +73,7 @@
 
 
 	   <!---table 放到下面****************************************************                          -->
-		<table tableName="oupon" domainObjectName="Oupon" enableDeleteByExample="false"
+		<table tableName="coupon" domainObjectName="Coupon" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   enableDeleteByPrimaryKey="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
@@ -115,8 +115,6 @@
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
-
-
 
 
 

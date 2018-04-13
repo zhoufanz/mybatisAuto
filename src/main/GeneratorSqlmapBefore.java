@@ -10,7 +10,7 @@ public class GeneratorSqlmapBefore {
      */
     public static String getStringByTableList() {
         return
-                "oupon\n" +
+                "coupon\n" +
                         "coupon_apply\n" +
                         "coupon_consume_bill\n" +
                         "customer_service_budget\n" +
