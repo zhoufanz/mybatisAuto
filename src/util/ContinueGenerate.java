@@ -1,6 +1,8 @@
 package util;
 
 
+import main.GeneratorSqlmap;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +14,7 @@ public class ContinueGenerate {
 
     //指定生成service,controller的模板路径
     private static String ftlPath = "/ftl1_mysql_for_mybatis";
+    private static boolean isQuery=false;
 
     //输出路径    第三方的的发生大幅度的十分反对反对
     private static String[] generateTargetPath = null;
@@ -97,12 +100,19 @@ public class ContinueGenerate {
     public static void continueGenerate(String entityPath) {
         List<String> models = StringUtil.getDirectoryClassNameListString(entityPath);
         for (String entity : models) {
-            create(serviceTemp[0], serviceTemp[1], entity, generateTargetPath[0] + "" + entity + serviceTemp[2] + ".java");
-            create(serviceImplTemp[0], serviceImplTemp[1], entity, generateTargetPath[1] + entity + serviceImplTemp[2] + ".java");
-            create(controllerTemp[0], controllerTemp[1], entity, generateTargetPath[2] + entity + controllerTemp[2] + ".java");
-            create(serviceTestTemp[0], serviceTestTemp[1], entity, generateTargetPath[7] + "" + entity + serviceTestTemp[2] + ".java");
+            if(GeneratorSqlmap.isQuery){
+                create("query/service.ftl", serviceTemp[1], entity, generateTargetPath[0] + "" + entity + serviceTemp[2] + ".java");
+                create("query/serviceImpl.ftl", serviceImplTemp[1], entity, generateTargetPath[1] + entity + serviceImplTemp[2] + ".java");
+                create(controllerTemp[0], controllerTemp[1], entity, generateTargetPath[2] + entity + controllerTemp[2] + ".java");
+                create("query/serviceImplTest.ftl", serviceTestTemp[1], entity, generateTargetPath[7] + "" + entity + serviceTestTemp[2] + ".java");
+            }else {
+                create(serviceTemp[0], serviceTemp[1], entity, generateTargetPath[0] + "" + entity + serviceTemp[2] + ".java");
+                create(serviceImplTemp[0], serviceImplTemp[1], entity, generateTargetPath[1] + entity + serviceImplTemp[2] + ".java");
+                create(controllerTemp[0], controllerTemp[1], entity, generateTargetPath[2] + entity + controllerTemp[2] + ".java");
+                create(serviceTestTemp[0], serviceTestTemp[1], entity, generateTargetPath[7] + "" + entity + serviceTestTemp[2] + ".java");
 //            create(daoImplTemp[0], daoImplTemp[1], entity, generateTargetPath[4] + "" + entity + daoImplTemp[2] + ".xml");
 //            create(serviceImplTempBase[0], serviceImplTempBase[1], entity, generateTargetPath[8] + entity + serviceImplTempBase[2] + ".java");
+            }
 
         }
     }
@@ -127,13 +137,29 @@ public class ContinueGenerate {
                     String line = null;
                     int ab=-1;
                     List<String> list = new ArrayList<>();
+                    int lineCount=0;
                     while ((line = bre.readLine()) != null) {
                         if(line.indexOf("package ")!=-1){
                             continue;
                         }
 
-                        if (line.contains("insert(")||line.contains("updateByPrimaryKey(")||line.contains("*")){
-                           continue;
+                        if(GeneratorSqlmap.isQuery==false) {
+                            if (line.contains("insert(") || line.contains("updateByPrimaryKey(") || line.contains("*")) {
+                                continue;
+                            }
+                        }else{
+                            if (line.contains("insert(")||line.contains("updateByPrimaryKey(")||line.contains("*")||line.contains("insertSelective")||line.contains("updateByPrimaryKeySelective")){
+                                continue;
+                            }
+                            if (line.trim().length()==0) {
+                                lineCount++;
+                            }else{
+                                lineCount=0;
+                            }
+                            if (lineCount==2){
+                                lineCount=0;
+                                continue;
+                            }
                         }
                         list.add(line+"\n");
                     }
@@ -384,7 +410,36 @@ public class ContinueGenerate {
                                 int end = line.indexOf(endStr);
                                 key = line.substring(begin+beginStr.length(), end);
                                 String keyEnd=" and "+key+" !=''";
-                                line = line.substring(0, line.indexOf("\" >")) + keyEnd + "\" >";
+                                if(!line.contains("Time != null")&&!line.contains("Date != null")) {
+                                    line = line.substring(0, line.indexOf("\" >")) + keyEnd + "\" >";
+                                }
+
+                            }
+
+                            if (GeneratorSqlmap.isQuery){
+                                if (line.contains("<insert id=\"insertSelective\"")){
+                                    insertSelectiveStart=true;
+                                    continue;
+                                }
+                                if(insertSelectiveStart&&line.contains("</insert>")){
+                                    insertSelectiveStart=false;
+                                    continue;
+                                }
+                                if(insertSelectiveStart){
+                                    continue;
+                                }
+
+                                if (line.contains("<update id=\"updateByPrimaryKeySelective\"")){
+                                    updateByPrimaryKeySelective=true;
+                                    continue;
+                                }
+                                if(updateByPrimaryKeySelective&&line.contains("</update>")){
+                                    updateByPrimaryKeySelective=false;
+                                    continue;
+                                }
+                                if(updateByPrimaryKeySelective){
+                                    continue;
+                                }
 
                             }
 
@@ -424,4 +479,8 @@ public class ContinueGenerate {
             System.out.println(e.getMessage());
         }
     }
+
+    private static boolean insertSelectiveStart=false;
+    private static boolean updateByPrimaryKeySelective=false;
+
 }

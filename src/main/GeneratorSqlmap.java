@@ -52,6 +52,7 @@ public class GeneratorSqlmap {
 	 * @param args
 	 * @throws Exception
 	 */
+	public static boolean isQuery=false;
 	public static void main(String[] args) throws Exception {
 		try {
 			//初步生成dao,实体

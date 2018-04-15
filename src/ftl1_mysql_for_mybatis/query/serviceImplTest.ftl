@@ -15,11 +15,6 @@ public class ${entity}ServiceImplTest {
     private ${entity}Service ${lowerentity}Service;
 
     @Test
-    public void insertSelective() {
-
-    }
-
-    @Test
     public void selectByPrimaryKey() {
         Integer id = 1;
         ${entity} ${lowerentity} = this.${lowerentity}Service.selectByPrimaryKey(id);
@@ -29,10 +24,5 @@ public class ${entity}ServiceImplTest {
         }else{
             System.out.println("目标不存在");
         }
-    }
-
-    @Test
-    public void updateByPrimaryKeySelective() {
-
     }
 }
