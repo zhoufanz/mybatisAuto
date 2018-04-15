@@ -29,7 +29,8 @@ public class MyJavaTypeResolver extends JavaTypeResolverDefaultImpl implements J
                     } else if (introspectedColumn.getLength() > 9) {
                         answer = new FullyQualifiedJavaType(Long.class.getName());
                     } else {
-                        answer = new FullyQualifiedJavaType(Integer.class.getName());
+                        answer = new FullyQualifiedJavaType(Long.class.getName());
+//                        answer = new FullyQualifiedJavaType(Integer.class.getName());
                     }
                     break;
 
@@ -75,7 +76,7 @@ public class MyJavaTypeResolver extends JavaTypeResolverDefaultImpl implements J
         typeMap.put(Types.FLOAT, new JdbcTypeInformation("FLOAT", //$NON-NLS-1$
                 new FullyQualifiedJavaType(Double.class.getName())));
         typeMap.put(Types.INTEGER, new JdbcTypeInformation("INTEGER", //$NON-NLS-1$
-                new FullyQualifiedJavaType(Integer.class.getName())));
+                new FullyQualifiedJavaType(Long.class.getName())));
         typeMap.put(Types.JAVA_OBJECT, new JdbcTypeInformation("JAVA_OBJECT", //$NON-NLS-1$
                 new FullyQualifiedJavaType(Object.class.getName())));
         typeMap.put(Jdbc4Types.LONGNVARCHAR, new JdbcTypeInformation("LONGNVARCHAR", //$NON-NLS-1$

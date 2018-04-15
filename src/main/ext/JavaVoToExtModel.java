@@ -56,7 +56,7 @@ public class JavaVoToExtModel {
                 att = split[2].trim();
 
                 if(att.indexOf("Time")>=0||att.indexOf("Date")>=0){
-                    att = "{name:'" + att + "',type:'date',convert: dateConvert},";
+                    att = "{name:'" + att + "',type:'date',convert : function (value) {return Ext.Date.format (new Date (value), \"Y-m-d\")}},";
                 }else {
                     att = "{name:'" + att + "',type:'string'},";
                 }
@@ -72,77 +72,79 @@ public class JavaVoToExtModel {
         }
     }
     public static String init(){
-        return "/**\n" +
-                "     * id\n" +
+        return "    /**\n" +
+                "     * 自增主键id\n" +
                 "     */\n" +
-                "    @Id\n" +
-                "\t@Column(\"ID\")\n" +
-                "    private String id;\n" +
+                "    private Integer id;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 网点编号\n" +
+                "     * 优惠策略名称\n" +
                 "     */\n" +
-                "    @Column(\"SITE_CODE\")\n" +
-                "    private String siteCode;\n" +
+                "    private String name;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 是否高德打点(1是/0否)\n" +
+                "     * 状态 0:待审核，1:审核不通过，2:已撤销，3:审核通过，4:已失效\n" +
                 "     */\n" +
-                "    @Column(\"BL_GOULD\")\n" +
-                "    private Integer blGould;\n" +
+                "    private Integer status;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 纬度\n" +
+                "     * yyyy-dd-MM hh:mm:ss(活动开始时间)\n" +
                 "     */\n" +
-                "    @Column(\"LATITUDE\")\n" +
-                "    private String latitude;\n" +
+                "    private Date beginTime;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 经度\n" +
+                "     * yyyy-dd-MM hh:mm:ss(活动结束时间)\n" +
                 "     */\n" +
-                "    @Column(\"LONGITUDE\")\n" +
-                "    private String longitude;\n" +
+                "    private Date endTime;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 创建时间\n" +
+                "     * 优惠券过期时间\n" +
                 "     */\n" +
-                "    @Column(\"CREATE_TIME\")\n" +
+                "    private Date expireTime;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 预算总额\n" +
+                "     */\n" +
+                "    private BigDecimal totalMoney;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 已返总额\n" +
+                "     */\n" +
+                "    private BigDecimal returnMoney;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 操作人id关联core_user表主键\n" +
+                "     */\n" +
+                "    private Integer createBy;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * yyyy-dd-MM hh:mm:ss(创建时间)\n" +
+                "     */\n" +
                 "    private Date createTime;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 创建人编号\n" +
+                "     * 审核人id关联core_user表主键\n" +
                 "     */\n" +
-                "    @Column(\"CREATE_USER_CODE\")\n" +
-                "    private String createUserCode;\n" +
-                "    /**\n" +
-                "     * 创建人名称\n" +
-                "     */\n" +
-                "    @Column(\"CREATE_USER_NAME\")\n" +
-                "    private String createUserName;\n" +
+                "    private Integer verifyBy;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 修改时间\n" +
+                "     * yyyy-dd-MM hh:mm:ss(审核时间)\n" +
                 "     */\n" +
-                "    @Column(\"MODIFY_TIME\")\n" +
-                "    private Date modifyTime;\n" +
+                "    private Date verifyTime;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 修改人编号\n" +
+                "     * 审核备注\n" +
                 "     */\n" +
-                "    @Column(\"MODIFY_USER_CODE\")\n" +
-                "    private String modifyUserCode;\n" +
+                "    private String remark;\n" +
+                "\n" +
                 "    /**\n" +
-                "     * 修改人名称\n" +
+                "     * 删除标记 有效为1，无效为0\n" +
                 "     */\n" +
-                "    @Column(\"MODIFY_USER_NAME\")\n" +
-                "    private String modifyUserName;\n" +
+                "    private Integer isValid;\n" +
+                "\n" +
                 "    /**\n" +
-                "     * 网点简称\n" +
+                "     * 备注\n" +
                 "     */\n" +
-                "    private String siteNameShort;\n" +
-                "    /**\n" +
-                "     * 网点类型\n" +
-                "     */\n" +
-                "    private Integer siteKind;";
+                "    private String note;\n";
     }
 }

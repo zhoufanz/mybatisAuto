@@ -61,31 +61,35 @@ public class ModelFieldsToGridColumn {
     }
 
     public static String init(){
-        return "        //id\n" +
-                "        {name:'id',type:'string'},\n" +
-                "//网点编号\n" +
-                "        {name:'siteCode',type:'string'},\n" +
-                "//0否)\n" +
-                "        {name:'blGould',type:'string'},\n" +
-                "//纬度\n" +
-                "        {name:'latitude',type:'string'},\n" +
-                "//经度\n" +
-                "        {name:'longitude',type:'string'},\n" +
-                "//创建时间\n" +
-                "        {name:'createTime',type:'date',convert: dateConvert},\n" +
-                "//创建人编号\n" +
-                "        {name:'createUserCode',type:'string'},\n" +
-                "//创建人名称\n" +
-                "        {name:'createUserName',type:'string'},\n" +
-                "//修改时间\n" +
-                "        {name:'modifyTime',type:'date',convert: dateConvert},\n" +
-                "//修改人编号\n" +
-                "        {name:'modifyUserCode',type:'string'},\n" +
-                "//修改人名称\n" +
-                "        {name:'modifyUserName',type:'string'},\n" +
-                "//网点简称\n" +
-                "        {name:'siteNameShort',type:'string'},\n" +
-                "//网点类型\n" +
-                "        {name:'siteKind',type:'string'}";
+        return "//自增主键id\n" +
+                "{name:'id',type:'string'},\n" +
+                "//优惠策略名称\n" +
+                "{name:'name',type:'string'},\n" +
+                "//状态 0:待审核，1:审核不通过，2:已撤销，3:审核通过，4:已失效\n" +
+                "{name:'status',type:'string'},\n" +
+                "//yyyy-dd-MM hh:mm:ss(活动开始时间)\n" +
+                "{name:'beginTime',type:'date',convert: dateConvert},\n" +
+                "//yyyy-dd-MM hh:mm:ss(活动结束时间)\n" +
+                "{name:'endTime',type:'date',convert: dateConvert},\n" +
+                "//优惠券过期时间\n" +
+                "{name:'expireTime',type:'date',convert: dateConvert},\n" +
+                "//预算总额\n" +
+                "{name:'totalMoney',type:'string'},\n" +
+                "//已返总额\n" +
+                "{name:'returnMoney',type:'string'},\n" +
+                "//操作人id关联core_user表主键\n" +
+                "{name:'createBy',type:'string'},\n" +
+                "//yyyy-dd-MM hh:mm:ss(创建时间)\n" +
+                "{name:'createTime',type:'date',convert: dateConvert},\n" +
+                "//审核人id关联core_user表主键\n" +
+                "{name:'verifyBy',type:'string'},\n" +
+                "//yyyy-dd-MM hh:mm:ss(审核时间)\n" +
+                "{name:'verifyTime',type:'date',convert: dateConvert},\n" +
+                "//审核备注\n" +
+                "{name:'remark',type:'string'},\n" +
+                "//删除标记 有效为1，无效为0\n" +
+                "{name:'isValid',type:'string'},\n" +
+                "//备注\n" +
+                "{name:'note',type:'string'},";
     }
 }
