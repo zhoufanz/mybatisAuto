@@ -128,6 +128,9 @@ public class ContinueGenerate {
                     int ab=-1;
                     List<String> list = new ArrayList<>();
                     while ((line = bre.readLine()) != null) {
+                        if(line.indexOf("package ")!=-1){
+                            continue;
+                        }
 
                         if (line.contains("insert(")||line.contains("updateByPrimaryKey(")||line.contains("*")){
                            continue;
@@ -183,6 +186,9 @@ public class ContinueGenerate {
                     StringBuilder sb = new StringBuilder();
                     String line = null;
                     while ((line = bre.readLine()) != null) {
+                        if(line.indexOf("package ")!=-1){
+                            continue;
+                        }
 
                         if (line.indexOf(" class ") != -1) {
                             sb.append(
@@ -254,6 +260,10 @@ public class ContinueGenerate {
                     StringBuilder sb = new StringBuilder();
                     String line = null;
                     while ((line = bre.readLine()) != null) {
+
+                        if(line.indexOf("package ")!=-1){
+                            continue;
+                        }
 
                         if (line.indexOf(" class ") != -1) {
                             sb.append(
