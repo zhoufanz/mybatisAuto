@@ -410,8 +410,8 @@ public class ContinueGenerate {
                                 int end = line.indexOf(endStr);
                                 key = line.substring(begin+beginStr.length(), end);
                                 String keyEnd=" and "+key+" !=''";
-                                if(!line.contains("Time != null")&&!line.contains("Date != null")) {
-                                    line = line.substring(0, line.indexOf("\" >")) + keyEnd + "\" >";
+                                if(!line.contains("Time != null")&&!line.contains("Date != null")&&!line.contains("Money")) {
+//                                    line = line.substring(0, line.indexOf("\" >")) + keyEnd + "\" >";
                                 }
 
                             }

@@ -28,3 +28,22 @@ generatorConfig.xml
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
+
+
+		另外建议 调用mybatis之前
+		/**
+             * 过滤map空值
+             * @param map
+             * @return
+             */
+            public static Map<String,Object> filterEmptyValueForMap(Map<String,Object> map){
+                Map<String, Object> target = new HashMap<>();
+                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                    if (entry.getValue() != null) {
+                        if (StringUtils.isNotEmpty(entry.getValue().toString())) {
+                            target.put(entry.getKey(), entry.getValue());
+                        }
+                    }
+                }
+                return target;
+            }

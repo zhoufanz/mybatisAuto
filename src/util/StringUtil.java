@@ -193,7 +193,8 @@ public class StringUtil {
         return sb.toString().trim()+"";
     }
     public static void main(String[] args) {
-        System.out.println(tableNameToEntityName("T_FIN_BIll"));
-        System.out.println(tableNameToEntityName("FIN_BIll"));
+ /*       System.out.println(tableNameToEntityName("T_FIN_BIll"));
+        System.out.println(tableNameToEntityName("FIN_BIll"));*/
+        System.out.println(camelToUnderline("sssdfssdfId"));
     }
 }
