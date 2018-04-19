@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5103bd6a-2350-4515-9ba0-605c375ba73d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.txt" afterPath="$PROJECT_DIR$/readme.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ext/JavaVoToExtModel.java" afterPath="$PROJECT_DIR$/src/main/ext/JavaVoToExtModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ext/ModelFieldsToGridColumn.java" afterPath="$PROJECT_DIR$/src/main/ext/ModelFieldsToGridColumn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/ContinueGenerate.java" afterPath="$PROJECT_DIR$/src/util/ContinueGenerate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/StringUtil.java" afterPath="$PROJECT_DIR$/src/util/StringUtil.java" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,18 +26,28 @@
       <file leaf-file-name="MyJavaTypeResolver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plugin/MyJavaTypeResolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+            <state relative-caret-position="359">
+              <caret line="67" column="18" lean-forward="false" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serviceImplTest.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ftl1_mysql_for_mybatis/serviceImplTest.ftl">
+      <file leaf-file-name="JavaVoToExtModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/ext/JavaVoToExtModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="35" lean-forward="false" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+            <state relative-caret-position="219">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModelFieldsToGridColumn.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/ext/ModelFieldsToGridColumn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -46,28 +56,28 @@
       <file leaf-file-name="GeneratorSqlmap.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/GeneratorSqlmap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="76" column="69" lean-forward="false" selection-start-line="76" selection-start-column="69" selection-end-line="76" selection-end-column="69" />
+            <state relative-caret-position="226">
+              <caret line="71" column="43" lean-forward="false" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/readme.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="11" lean-forward="true" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+            <state relative-caret-position="472">
+              <caret line="33" column="11" lean-forward="false" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContinueGenerate.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ContinueGenerate.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/util/ContinueGenerate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="417" column="0" lean-forward="false" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
+            <state relative-caret-position="385">
+              <caret line="239" column="37" lean-forward="false" selection-start-line="239" selection-start-column="37" selection-end-line="239" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -76,7 +86,7 @@
       <file leaf-file-name="MyCommentGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/MyCommentGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="-45">
               <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
               <folding />
             </state>
@@ -86,7 +96,7 @@
       <file leaf-file-name="StringUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/StringUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
+            <state relative-caret-position="2820">
               <caret line="192" column="39" lean-forward="false" selection-start-line="192" selection-start-column="39" selection-end-line="192" selection-end-column="39" />
               <folding />
             </state>
@@ -96,28 +106,8 @@
       <file leaf-file-name="GeneratorSqlmapBefore.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/GeneratorSqlmapBefore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-258">
+            <state relative-caret-position="60">
               <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JavaTypeResolverDefaultImpl.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/mybatis-generator-core-1.3.2-sources.jar!/org/mybatis/generator/internal/types/JavaTypeResolverDefaultImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2535">
-              <caret line="200" column="15" lean-forward="false" selection-start-line="200" selection-start-column="15" selection-end-line="200" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MysqlPaginationPlugin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugin/MysqlPaginationPlugin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -142,6 +132,7 @@
       <find>update</find>
       <find>insertSelective</find>
       <find>Integer</find>
+      <find>Long</find>
     </findStrings>
     <replaceStrings>
       <replace>//throw new Exception(&quot;实体后缀必须为Entity&quot;);</replace>
@@ -199,13 +190,13 @@
         <option value="$PROJECT_DIR$/src/main/GeneratorSqlmap.java" />
         <option value="$PROJECT_DIR$/src/com/yung/couponconfig/dao/CouponApplyMapper.xml" />
         <option value="$PROJECT_DIR$/src/com/yung/couponconfig/domain/Strategy.java" />
-        <option value="$PROJECT_DIR$/src/main/ext/ModelFieldsToGridColumn.java" />
-        <option value="$PROJECT_DIR$/src/main/ext/JavaVoToExtModel.java" />
         <option value="$PROJECT_DIR$/plugin/MyJavaTypeResolver.java" />
         <option value="$PROJECT_DIR$/src/ftl1_mysql_for_mybatis/serviceImplTest.ftl" />
         <option value="$PROJECT_DIR$/src/util/StringUtil.java" />
-        <option value="$PROJECT_DIR$/src/util/ContinueGenerate.java" />
         <option value="$PROJECT_DIR$/readme.txt" />
+        <option value="$PROJECT_DIR$/src/main/ext/JavaVoToExtModel.java" />
+        <option value="$PROJECT_DIR$/src/main/ext/ModelFieldsToGridColumn.java" />
+        <option value="$PROJECT_DIR$/src/util/ContinueGenerate.java" />
       </list>
     </option>
   </component>
@@ -351,7 +342,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -379,6 +370,13 @@
               <item name="mybatisAuto" type="b2602c69:ProjectViewProjectNode" />
               <item name="mybatisAuto" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="ext" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mybatisAuto" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mybatisAuto" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -390,7 +388,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -841,9 +839,9 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.GeneratorSqlmap" />
-        <item index="1" class="java.lang.String" itemvalue="Application.StringUtil" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ModelFieldsToGridColumn" />
         <item index="2" class="java.lang.String" itemvalue="Application.JavaVoToExtModel" />
-        <item index="3" class="java.lang.String" itemvalue="Application.ModelFieldsToGridColumn" />
+        <item index="3" class="java.lang.String" itemvalue="Application.StringUtil" />
         <item index="4" class="java.lang.String" itemvalue="Application.GeneratorSqlmapBefore" />
       </list>
     </recent_temporary>
@@ -928,7 +926,9 @@
       <workItem from="1523776863171" duration="2693000" />
       <workItem from="1523799316423" duration="1606000" />
       <workItem from="1523841885544" duration="70000" />
-      <workItem from="1523867224926" duration="2075000" />
+      <workItem from="1523867224926" duration="2683000" />
+      <workItem from="1524100302696" duration="598000" />
+      <workItem from="1524117911839" duration="3135000" />
     </task>
     <task id="LOCAL-00001" summary="fdsffffffffsdadsds">
       <created>1493212072903</created>
@@ -1203,11 +1203,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523841909998</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="添加baseimpl">
+      <created>1523943423425</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1523943423425</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157656000" />
+    <option name="totallyTimeSpent" value="161997000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1229,18 +1236,18 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.9317549" sideWeight="0.41066837" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37973273" sideWeight="0.5893316" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40979955" sideWeight="0.4704301" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4053452" sideWeight="0.5893316" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3062361" sideWeight="0.4704301" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32823366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3033049" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3065032" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3481894" sideWeight="0.48933902" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53340757" sideWeight="0.48933902" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1281,44 +1288,41 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/util/ContinueGenerate.java</url>
-          <line>269</line>
+          <line>272</line>
           <properties />
           <option name="timeStamp" value="105" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/util/ContinueGenerate.java</url>
-          <line>298</line>
+          <line>301</line>
           <properties />
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/util/ContinueGenerate.java</url>
-          <line>321</line>
+          <line>324</line>
           <properties />
           <option name="timeStamp" value="107" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/util/ContinueGenerate.java</url>
-          <line>319</line>
+          <line>322</line>
           <properties />
           <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/ext/JavaVoToExtModel.java</url>
+          <line>40</line>
+          <properties />
+          <option name="timeStamp" value="115" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="111" />
+      <option name="time" value="116" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="files[i]" language="JAVA" />
-        <watch expression="map.get(filed.trim())" language="JAVA" />
-        <watch expression="filed" language="JAVA" />
-        <watch expression="att.indexOf(&quot;/&quot;)" language="JAVA" />
-        <watch expression="MessageFormat.format(&quot;{name:{0},type:'string'&quot;, &quot;fdfdfdfd&quot;);" language="JAVA" />
-        <watch expression="sb.toString()" language="JAVA" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/0-dev-all/jdk1.7.0_51/src.zip!/java/util/TreeMap.java">
@@ -1401,7 +1405,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1461,27 +1464,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ext/JavaVoToExtModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="66" column="47" lean-forward="false" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ext/ModelFieldsToGridColumn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="51" column="36" lean-forward="false" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ext/FormItemsToStoreParams.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="883">
           <caret line="86" column="32" lean-forward="false" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1522,13 +1508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/yung/couponconfig/domain/Coupon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/yung/couponconfig/domain/CouponApply.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1558,14 +1537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugin/MyJavaTypeResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ftl1_mysql_for_mybatis/serviceImplTest.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1574,58 +1545,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/GeneratorSqlmapBefore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-258">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/MyCommentGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/yung/couponconfig/dao/CouponApplyMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-180">
           <caret line="15" column="74" lean-forward="true" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/StringUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
+        <state relative-caret-position="2820">
           <caret line="192" column="39" lean-forward="false" selection-start-line="192" selection-start-column="39" selection-end-line="192" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/ContinueGenerate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="417" column="0" lean-forward="false" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/GeneratorSqlmap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="76" column="69" lean-forward="false" selection-start-line="76" selection-start-column="69" selection-end-line="76" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="11" lean-forward="true" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+        <state relative-caret-position="472">
+          <caret line="33" column="11" lean-forward="false" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugin/MyJavaTypeResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="67" column="18" lean-forward="false" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/yung/couponconfig/domain/Coupon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-240">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="64" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ext/JavaVoToExtModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ext/ModelFieldsToGridColumn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/MyCommentGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GeneratorSqlmapBefore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GeneratorSqlmap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="71" column="43" lean-forward="false" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/ContinueGenerate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="239" column="37" lean-forward="false" selection-start-line="239" selection-start-column="37" selection-end-line="239" selection-end-column="37" />
           <folding />
         </state>
       </provider>

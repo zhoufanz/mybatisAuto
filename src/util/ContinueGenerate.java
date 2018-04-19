@@ -236,6 +236,9 @@ public class ContinueGenerate {
                             continue;
 
                         }
+                        if (line.indexOf(" Date ") >= 0) {
+                            line = line.replace(" Date ", " String ");
+                        }
 
                         sb.append(line + "\n");
                     }

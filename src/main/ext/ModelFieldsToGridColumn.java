@@ -63,33 +63,33 @@ public class ModelFieldsToGridColumn {
     public static String init(){
         return "//自增主键id\n" +
                 "{name:'id',type:'string'},\n" +
-                "//优惠策略名称\n" +
-                "{name:'name',type:'string'},\n" +
-                "//状态 0:待审核，1:审核不通过，2:已撤销，3:审核通过，4:已失效\n" +
-                "{name:'status',type:'string'},\n" +
-                "//yyyy-dd-MM hh:mm:ss(活动开始时间)\n" +
-                "{name:'beginTime',type:'date',convert: dateConvert},\n" +
-                "//yyyy-dd-MM hh:mm:ss(活动结束时间)\n" +
-                "{name:'endTime',type:'date',convert: dateConvert},\n" +
+                "//用户主键\n" +
+                "{name:'userId',type:'string'},\n" +
+                "//返券时用户城市ID\n" +
+                "{name:'cityId',type:'string'},\n" +
+                "//策略id\n" +
+                "{name:'strategyId',type:'string'},\n" +
+                "//云柜平台订单号\n" +
+                "{name:'outTradeNo',type:'string'},\n" +
+                "//返券类型  1 充值返券 2 客服人工返券\n" +
+                "{name:'type',type:'string'},\n" +
+                "//金额\n" +
+                "{name:'money',type:'string'},\n" +
+                "//已使用金额\n" +
+                "{name:'usedMoney',type:'string'},\n" +
                 "//优惠券过期时间\n" +
-                "{name:'expireTime',type:'date',convert: dateConvert},\n" +
-                "//预算总额\n" +
-                "{name:'totalMoney',type:'string'},\n" +
-                "//已返总额\n" +
-                "{name:'returnMoney',type:'string'},\n" +
-                "//操作人id关联core_user表主键\n" +
-                "{name:'createBy',type:'string'},\n" +
-                "//yyyy-dd-MM hh:mm:ss(创建时间)\n" +
-                "{name:'createTime',type:'date',convert: dateConvert},\n" +
-                "//审核人id关联core_user表主键\n" +
-                "{name:'verifyBy',type:'string'},\n" +
-                "//yyyy-dd-MM hh:mm:ss(审核时间)\n" +
-                "{name:'verifyTime',type:'date',convert: dateConvert},\n" +
-                "//审核备注\n" +
-                "{name:'remark',type:'string'},\n" +
-                "//删除标记 有效为1，无效为0\n" +
+                "{name:'expireTime',type:'date',convert : function (value) {return Ext.Date.format (new Date (value), \"Y-m-d\")}},\n" +
+                "//返券时间\n" +
+                "{name:'createTime',type:'date',convert : function (value) {return Ext.Date.format (new Date (value), \"Y-m-d\")}},\n" +
+                "//删除标记 is_valid 有效为1 无效为0\n" +
                 "{name:'isValid',type:'string'},\n" +
                 "//备注\n" +
-                "{name:'note',type:'string'},";
+                "{name:'note',type:'string'},\n" +
+                "//活動名稱\n" +
+                "{name:'strategyName',type:'string'},\n" +
+                "//充值账号\n" +
+                "{name:'loginName',type:'string'},\n" +
+                "//返劵状态\n" +
+                "{name:'statusName',type:'string'},";
     }
 }

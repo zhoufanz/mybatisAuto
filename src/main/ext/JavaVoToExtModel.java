@@ -71,31 +71,51 @@ public class JavaVoToExtModel {
             System.out.println(s);
         }
     }
+
+    /**
+     * 注意 注释中不能有分号 ;
+     * @return
+     */
     public static String init(){
-        return "    /**\n" +
+        return "/**\n" +
                 "     * 自增主键id\n" +
                 "     */\n" +
                 "    private Integer id;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 优惠策略名称\n" +
+                "     * 用户主键\n" +
                 "     */\n" +
-                "    private String name;\n" +
+                "    private Integer userId;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 状态 0:待审核，1:审核不通过，2:已撤销，3:审核通过，4:已失效\n" +
+                "     * 返券时用户城市ID\n" +
                 "     */\n" +
-                "    private Integer status;\n" +
+                "    private Integer cityId;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * yyyy-dd-MM hh:mm:ss(活动开始时间)\n" +
+                "     * 策略id\n" +
                 "     */\n" +
-                "    private Date beginTime;\n" +
+                "    private Integer strategyId;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * yyyy-dd-MM hh:mm:ss(活动结束时间)\n" +
+                "     * 云柜平台订单号\n" +
                 "     */\n" +
-                "    private Date endTime;\n" +
+                "    private String outTradeNo;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 返券类型  1 充值返券 2 客服人工返券\n" +
+                "     */\n" +
+                "    private Integer type;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 金额\n" +
+                "     */\n" +
+                "    private BigDecimal money;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 已使用金额\n" +
+                "     */\n" +
+                "    private BigDecimal usedMoney;\n" +
                 "\n" +
                 "    /**\n" +
                 "     * 优惠券过期时间\n" +
@@ -103,48 +123,33 @@ public class JavaVoToExtModel {
                 "    private Date expireTime;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 预算总额\n" +
-                "     */\n" +
-                "    private BigDecimal totalMoney;\n" +
-                "\n" +
-                "    /**\n" +
-                "     * 已返总额\n" +
-                "     */\n" +
-                "    private BigDecimal returnMoney;\n" +
-                "\n" +
-                "    /**\n" +
-                "     * 操作人id关联core_user表主键\n" +
-                "     */\n" +
-                "    private Integer createBy;\n" +
-                "\n" +
-                "    /**\n" +
-                "     * yyyy-dd-MM hh:mm:ss(创建时间)\n" +
+                "     * 创建时间/返券时间\n" +
                 "     */\n" +
                 "    private Date createTime;\n" +
                 "\n" +
                 "    /**\n" +
-                "     * 审核人id关联core_user表主键\n" +
-                "     */\n" +
-                "    private Integer verifyBy;\n" +
-                "\n" +
-                "    /**\n" +
-                "     * yyyy-dd-MM hh:mm:ss(审核时间)\n" +
-                "     */\n" +
-                "    private Date verifyTime;\n" +
-                "\n" +
-                "    /**\n" +
-                "     * 审核备注\n" +
-                "     */\n" +
-                "    private String remark;\n" +
-                "\n" +
-                "    /**\n" +
-                "     * 删除标记 有效为1，无效为0\n" +
+                "     * 删除标记 is_valid 有效为1 无效为0\n" +
                 "     */\n" +
                 "    private Integer isValid;\n" +
                 "\n" +
                 "    /**\n" +
                 "     * 备注\n" +
                 "     */\n" +
-                "    private String note;\n";
+                "    private String note;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 活動名稱\n" +
+                "     */\n" +
+                "    private String strategyName;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 充值账号\n" +
+                "     */\n" +
+                "    private String loginName;\n" +
+                "\n" +
+                "    /**\n" +
+                "     * 返劵状态\n" +
+                "     */\n" +
+                "    private String statusName;";
     }
 }
