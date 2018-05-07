@@ -17,6 +17,13 @@ public class MyJavaTypeResolver extends JavaTypeResolverDefaultImpl implements J
         JdbcTypeInformation jdbcTypeInformation = typeMap
                 .get(introspectedColumn.getJdbcType());
 
+        //对于int
+        if (introspectedColumn.getJdbcType()==4){
+            if (introspectedColumn.getLength()>=9){
+                return new FullyQualifiedJavaType(Long.class.getName());
+            }
+        }
+
         if (jdbcTypeInformation == null) {
             switch (introspectedColumn.getJdbcType()) {
                 case Types.DECIMAL:
