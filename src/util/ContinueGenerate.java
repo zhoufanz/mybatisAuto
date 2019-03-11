@@ -225,7 +225,7 @@ public class ContinueGenerate {
                             int i1 = line.indexOf("{");
                             String s = line.substring(0, i1) + " implements Serializable {";
                             int entity = s.lastIndexOf("  implements");
-                            String s1 = s.substring(0, entity) + "DTO" + " implements Serializable {";
+                            String s1 = s.substring(0, entity) + "Vo" + " implements Serializable {";
                             sb.append("\n");
                             sb.append(s1);
                             sb.append("\n");
@@ -237,7 +237,7 @@ public class ContinueGenerate {
 
                         }
                         if (line.indexOf(" Date ") >= 0) {
-                            line = line.replace(" Date ", " String ");
+//                            line = line.replace(" Date ", " String ");
                         }
 
                         sb.append(line + "\n");
@@ -246,7 +246,7 @@ public class ContinueGenerate {
                     //生成新文件
                     String voFileName = null;
                     int begin = file.getName().indexOf(".java");
-                    voFileName = file.getName().substring(0, begin) + "DTO.java";
+                    voFileName = file.getName().substring(0, begin) + "Vo.java";
                     File newFile = new File(generateTargetPath[3] + "\\" + voFileName);
                     newFile.createNewFile();
 
