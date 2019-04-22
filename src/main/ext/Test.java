@@ -1,6 +1,5 @@
 package main.ext;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -8,9 +7,10 @@ import java.util.List;
  */
 public class Test {
     public static void main(String[] args) {
-        String[] ss = {"dsfdfds"};
-        List<String> strings = Arrays.asList(ss);
-        System.out.println(listToString(strings));
+      int a=10;
+      a--;
+      --a;
+        System.out.println(a);
     }
     private static String listToString(List<String> list){
         StringBuilder sb=new StringBuilder();

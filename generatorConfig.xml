@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
-  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
 	<context id="testTables" targetRuntime="MyBatis3">
 		<!--插件只能放在sourceFolder的根目录中-->
 		<property name="javaFileEncoding" value="UTF-8"/>
-<!--
-		<plugin type="SelectByPagePlugin" />
--->
+		<!--
+                <plugin type="SelectByPagePlugin" />
+        -->
 
 		<commentGenerator type="util.MyCommentGenerator">
 			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
@@ -19,10 +19,30 @@
 
 		<!-- mysql -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://10.1.166.48:3306/yg_coupon?noAccessToProcedureBodies=true" userId="dev_user"
-                        password="yungui@2017">
-                    <property name="useInformationSchema" value="true"></property>
-        </jdbcConnection>
+						connectionURL="jdbc:mysql://10.1.166.48:3306/yg_user?noAccessToProcedureBodies=true" userId="dev_user"
+						password="yungui@2017">
+			<property name="useInformationSchema" value="true"></property>
+		</jdbcConnection>
+				<!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://10.1.166.206:3306/yg_pay?noAccessToProcedureBodies=true" userId="yg_pay_am"
+						password="yungui2018">
+			<property name="useInformationSchema" value="true"></property>
+		</jdbcConnection>-->
+		<!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://10.1.166.50:3306/yungui?noAccessToProcedureBodies=true" userId="yungui"
+						password="yungui">
+			<property name="useInformationSchema" value="true"></property>
+		</jdbcConnection>-->
+<!--		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://10.1.166.205:3306/yg_user?noAccessToProcedureBodies=true" userId="yg_user_am"
+						password="yungui2018">
+			<property name="useInformationSchema" value="true"></property>
+		</jdbcConnection>-->
+		<!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://10.1.166.205:3306/yg_express?noAccessToProcedureBodies=true" userId="express_am"
+						password="yungui@2018">
+			<property name="useInformationSchema" value="true"></property>
+		</jdbcConnection>-->
 		<!-- sqlserver -->
 		<!--<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
                         connectionURL="jdbc:sqlserver://172.16.254.10:1433;DatabaseName=yccenter" userId="zbtmstoad0511"
@@ -31,11 +51,11 @@
         </jdbcConnection>
 		-->
 		<!--oracle-->
-	<!--	<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-						connectionURL="jdbc:oracle:thin:@172.16.36.19:1521/hcm"
-						userId="HCM" password="HCM2017">
-			<property name="remarksReporting" value="true"></property>
-		</jdbcConnection>-->
+		<!--	<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+                            connectionURL="jdbc:oracle:thin:@172.16.36.19:1521/hcm"
+                            userId="HCM" password="HCM2017">
+                <property name="remarksReporting" value="true"></property>
+            </jdbcConnection>-->
 
 		<!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
 						connectionURL="jdbc:oracle:thin:@172.16.36.2:1521/BDM"
@@ -53,74 +73,32 @@
 			<property name="forceBigDecimals" value="false"/>
 		</javaTypeResolver>
 		<!-- targetProject:生成PO类的位置 -->
-		<javaModelGenerator targetPackage="org.java.entity"
-			targetProject=".\src">
+		<javaModelGenerator targetProject=".\src" targetPackage="com.yung.user.domain">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 			<!-- 从数据库返回的值被清理前后的空格 -->
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
-        <!-- targetProject:mapper映射文件生成的位置 -->
-		<sqlMapGenerator targetPackage="org.java.dao"
-			targetProject=".\src">
+		<!-- targetProject:mapper映射文件生成的位置 -->
+		<sqlMapGenerator targetProject=".\src" targetPackage="com.yung.user.dao">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
 		<!-- targetPackage：mapper接口生成的位置 -->
-		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="org.java.dao"
-			targetProject=".\src">
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.yung.user.dao"
+							 targetProject=".\src">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
 
-	   <!---table 放到下面****************************************************                          -->
-		<table tableName="oupon" domainObjectName="Oupon" enableDeleteByExample="false"
+		<!---table 放到下面****************************************************                          -->
+		<table tableName="member_wechat_bind" domainObjectName="MemberWechatBind" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   enableDeleteByPrimaryKey="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
-		<table tableName="coupon_apply" domainObjectName="CouponApply" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   enableDeleteByPrimaryKey="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="coupon_consume_bill" domainObjectName="CouponConsumeBill" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   enableDeleteByPrimaryKey="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="customer_service_budget" domainObjectName="CustomerServiceBudget" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   enableDeleteByPrimaryKey="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="strategy" domainObjectName="Strategy" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   enableDeleteByPrimaryKey="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="strategy_rate" domainObjectName="StrategyRate" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   enableDeleteByPrimaryKey="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-		<table tableName="strategy_regions" domainObjectName="StrategyRegions" enableDeleteByExample="false"
-			   enableUpdateByExample="false" selectByExampleQueryId="false"
-			   enableDeleteByPrimaryKey="false"
-			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
-			<property name="useActualColumnNames" value="false"/>
-		</table>
-
-
-
 
 
 
