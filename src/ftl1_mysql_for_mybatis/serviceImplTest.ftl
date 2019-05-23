@@ -21,9 +21,8 @@ public class ${entity}ServiceImplTest {
 
     @Test
     public void selectByPrimaryKey() {
-        System.setProperty("env","dev");
 
-        Integer id = 1;
+        Long id = 1;
         ${entity} ${lowerentity} = this.${lowerentity}Service.selectByPrimaryKey(id);
         System.out.println("*************");
         if(${lowerentity} != null){

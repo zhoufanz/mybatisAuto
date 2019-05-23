@@ -10,7 +10,8 @@ public class GeneratorSqlmapBefore {
      */
     public static String getStringByTableList() {
         return
-                "member_wechat_bind\n" ;
+                "wx_menu\n" +
+                        "wx_msg_auto_reply" ;
 
     }
     public static String template(String tableName, String EntityName) {

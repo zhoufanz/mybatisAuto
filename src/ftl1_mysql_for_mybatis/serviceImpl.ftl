@@ -17,7 +17,7 @@ public class ${entity}ServiceImpl implements ${entity}Service {
     }
 
     @Override
-    public ${entity} selectByPrimaryKey(Integer id) {
+    public ${entity} selectByPrimaryKey(Long id) {
         return this.${lowerentity}Mapper.selectByPrimaryKey(id);
     }
 

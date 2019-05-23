@@ -19,7 +19,7 @@
 
 		<!-- mysql -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-						connectionURL="jdbc:mysql://10.1.166.48:3306/yg_user?noAccessToProcedureBodies=true" userId="dev_user"
+						connectionURL="jdbc:mysql://10.1.166.48:3306/yg_wx?noAccessToProcedureBodies=true" userId="dev_user"
 						password="yungui@2017">
 			<property name="useInformationSchema" value="true"></property>
 		</jdbcConnection>
@@ -93,12 +93,19 @@
 
 
 		<!---table 放到下面****************************************************                          -->
-		<table tableName="member_wechat_bind" domainObjectName="MemberWechatBind" enableDeleteByExample="false"
+		<table tableName="wx_menu" domainObjectName="WxMenu" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   enableDeleteByPrimaryKey="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
+		<table tableName="wx_msg_auto_reply" domainObjectName="WxMsgAutoReply" enableDeleteByExample="false"
+			   enableUpdateByExample="false" selectByExampleQueryId="false"
+			   enableDeleteByPrimaryKey="false"
+			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+
 
 
 
