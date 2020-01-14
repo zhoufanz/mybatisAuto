@@ -10,8 +10,7 @@ public class GeneratorSqlmapBefore {
      */
     public static String getStringByTableList() {
         return
-                "wx_menu\n" +
-                        "wx_msg_auto_reply" ;
+                "poi_req_log\n" ;
 
     }
     public static String template(String tableName, String EntityName) {

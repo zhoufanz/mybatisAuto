@@ -11,45 +11,10 @@
                 <plugin type="SelectByPagePlugin" />
         -->
 
-		<commentGenerator type="util.MyCommentGenerator">
+		<commentGenerator type="plugin.MyCommentGenerator">
 			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
 			<property name="suppressAllComments" value="false" />
 		</commentGenerator>
-
-
-		<!-- mysql -->
-		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-						connectionURL="jdbc:mysql://10.1.166.48:3306/yg_ad?noAccessToProcedureBodies=true" userId="dev_user"
-						password="yungui@2017">
-			<property name="useInformationSchema" value="true"></property>
-		</jdbcConnection>
-				<!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-						connectionURL="jdbc:mysql://10.1.166.206:3306/yg_pay?noAccessToProcedureBodies=true" userId="yg_pay_am"
-						password="yungui2018">
-			<property name="useInformationSchema" value="true"></property>
-		</jdbcConnection>-->
-		<!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-						connectionURL="jdbc:mysql://10.1.166.50:3306/yungui?noAccessToProcedureBodies=true" userId="yungui"
-						password="yungui">
-			<property name="useInformationSchema" value="true"></property>
-		</jdbcConnection>-->
-<!--		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-						connectionURL="jdbc:mysql://10.1.166.205:3306/yg_user?noAccessToProcedureBodies=true" userId="yg_user_am"
-						password="yungui2018">
-			<property name="useInformationSchema" value="true"></property>
-		</jdbcConnection>-->
-		<!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-						connectionURL="jdbc:mysql://10.1.166.205:3306/yg_express?noAccessToProcedureBodies=true" userId="express_am"
-						password="yungui@2018">
-			<property name="useInformationSchema" value="true"></property>
-		</jdbcConnection>-->
-		<!-- sqlserver -->
-		<!--<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-                        connectionURL="jdbc:sqlserver://172.16.254.10:1433;DatabaseName=yccenter" userId="zbtmstoad0511"
-                        password="ycmic20170511_*# @#">
-                    <property name="useInformationSchema" value="true"></property>
-        </jdbcConnection>
-		-->
 		<!--oracle-->
 		<!--	<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
                             connectionURL="jdbc:oracle:thin:@172.16.36.19:1521/hcm"
@@ -57,51 +22,38 @@
                 <property name="remarksReporting" value="true"></property>
             </jdbcConnection>-->
 
-		<!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-						connectionURL="jdbc:oracle:thin:@172.16.36.2:1521/BDM"
-						userId="FOKF" password="FOKF">
-			<property name="remarksReporting" value="true"></property>
-		</jdbcConnection>--><!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-						connectionURL="jdbc:oracle:thin:@172.16.36.22:1521/R_OP_D"
-						userId="OPC" password="OPC">
-			<property name="remarksReporting" value="true"></property>
-		</jdbcConnection>-->
+		<!-- mysql -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://10.21.33.28:3306/mob_gapoi?useUnicode=true&amp;characterEncoding=utf-8" userId="root"
+						password="mobtech2019java">
+			<property name="useInformationSchema" value="true"></property>
+		</jdbcConnection>
 
-		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
-			NUMERIC 类型解析为java.math.BigDecimal -->
-		<javaTypeResolver type="MyJavaTypeResolver">
+		<javaTypeResolver type="plugin.MyJavaTypeResolver">
 			<property name="forceBigDecimals" value="false"/>
 		</javaTypeResolver>
+
 		<!-- targetProject:生成PO类的位置 -->
-		<javaModelGenerator targetProject=".\src" targetPackage="com.yung.user.domain">
-			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+		<javaModelGenerator targetProject=".\src" targetPackage="com.zf.domain">
 			<property name="enableSubPackages" value="false" />
-			<!-- 从数据库返回的值被清理前后的空格 -->
 			<property name="trimStrings" value="false" />
 		</javaModelGenerator>
 		<!-- targetProject:mapper映射文件生成的位置 -->
-		<sqlMapGenerator targetProject=".\src" targetPackage="com.yung.user.dao">
-			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+		<sqlMapGenerator targetProject=".\src" targetPackage="com.zf.dao">
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
 		<!-- targetPackage：mapper接口生成的位置 -->
-		<javaClientGenerator type="XMLMAPPER" targetPackage="com.yung.user.dao"
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.zf.dao"
 							 targetProject=".\src">
-			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
-
 		<!---table 放到下面****************************************************                          -->
-		<table tableName="url_convert_keyword" domainObjectName="UrlConvertKeyword" enableDeleteByExample="false"
+		<table tableName="poi_req_log" domainObjectName="PoiReqLog" enableDeleteByExample="false"
 			   enableUpdateByExample="false" selectByExampleQueryId="false"
 			   enableDeleteByPrimaryKey="false"
 			   selectByPrimaryKeyQueryId="false" enableCountByExample="false" enableSelectByExample="false">
 			<property name="useActualColumnNames" value="false"/>
 		</table>
-
-
-
-
 	</context>
 </generatorConfiguration>

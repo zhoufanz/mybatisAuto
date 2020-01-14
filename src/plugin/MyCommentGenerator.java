@@ -1,4 +1,4 @@
-package util;
+package plugin;
 
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.IntrospectedColumn;

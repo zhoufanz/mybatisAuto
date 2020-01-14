@@ -12,13 +12,35 @@ import java.util.List;
 
 public class GeneratorSqlmap {
 
+	/**
+	 * 第一步生成的文件路径
+	 */
+	public static final String FIRST_COMPLITE_CODE_PATH ="/src/com/zf/";
+
+	/**
+	 * 第一步生成的entity的绝对路径
+	 */
+	public static final String FIRST_COMPLITE_CODE_ENTITY_PATH =
+			new File(System.getProperty("user.dir"), FIRST_COMPLITE_CODE_PATH + "domain").getAbsolutePath();
+
+	/**
+	 * 第一步生成的mapper的绝对路径
+	 */
+	public static final String FIRST_COMPLITE_CODE_MAPPER_PATH =
+			new File(System.getProperty("user.dir"), FIRST_COMPLITE_CODE_PATH + "dao").getAbsolutePath();
+
+	/**
+	 * 主配置文件路径
+	 */
+	private static final String GENERATOR_CONFIG_XML_PATH = "generatorConfig.xml";
+
 	//生成
 	public void generator() throws Exception {
 		//错误信息
 		List<String> warnings = new ArrayList<String>();
 		boolean overwrite = true;
 		//配置文件
-		File configFile = new File("generatorConfig.xml");
+		File configFile = new File(GENERATOR_CONFIG_XML_PATH);
 		//配置文件解析器
 		ConfigurationParser cp = new ConfigurationParser(warnings);
 		//解析获得配置
@@ -32,17 +54,6 @@ public class GeneratorSqlmap {
 		myBatisGenerator.generate(null);
 	}
 
-	public static final String path="/src/com/yung/user/";
-
-
-	//获得已经生成的实体类文件夹路径
-	private static String getEntityPath() {
-		return new File(System.getProperty("user.dir"), path+"domain").getAbsolutePath();
-	}
-
-	private static String getMapperPath1() {
-		return new File(System.getProperty("user.dir"), path+"dao").getAbsolutePath();
-	}
 
 
 	/**
@@ -61,17 +72,16 @@ public class GeneratorSqlmap {
 			System.out.println("dao,entity ok了");
 
 			//根据实体的文件夹目录继续生成11
-			ContinueGenerate.continueGenerate(getEntityPath());
-
+			ContinueGenerate.continueGenerate(FIRST_COMPLITE_CODE_ENTITY_PATH);
 
 			//继续生成vo
-			ContinueGenerate.continueGenerateDTO(getEntityPath());
-			ContinueGenerate.continueGenerateEntity(getEntityPath());
+			ContinueGenerate.continueGenerateDTO(FIRST_COMPLITE_CODE_ENTITY_PATH);
+			ContinueGenerate.continueGenerateEntity(FIRST_COMPLITE_CODE_ENTITY_PATH);
 
 			//生成newEntityWithColumn
-			ContinueGenerate.continueGenerateNewMapperJava(getMapperPath1());
+			ContinueGenerate.continueGenerateNewMapperJava(FIRST_COMPLITE_CODE_MAPPER_PATH);
 			//生成没有column的entity
-			ContinueGenerate.continueGenerateNewMapperXml(getMapperPath1());
+			ContinueGenerate.continueGenerateNewMapperXml(FIRST_COMPLITE_CODE_MAPPER_PATH);
 
 			System.out.println("service,controller,dao,newEntityWithColumn ,dto,entity ok了");
 			System.out.println("去D盘下generate_mybatisXXXXXXXXXXXXX下找代码.txt");

@@ -1,4 +1,4 @@
-package main.ext;
+package tool.ext;
 
 /**
  * Created by zf11 on 2017-06-04.
