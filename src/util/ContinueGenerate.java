@@ -73,7 +73,7 @@ public class ContinueGenerate {
     public static void continueGenerate(String entityPath) {
         List<String> models = StringUtil.getDirectoryClassNameListString(entityPath);
         for (String entity : models) {
-            if(GeneratorSqlmap.isQuery){
+            if(GeneratorSqlmap.SECOND_IS_QUERY){
                 create("query/service.ftl", serviceTemp[1], entity, GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[0] + "" + entity + serviceTemp[2] + ".java");
                 create("query/serviceImpl.ftl", serviceImplTemp[1], entity, GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[1] + entity + serviceImplTemp[2] + ".java");
                 create(controllerTemp[0], controllerTemp[1], entity, GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[2] + entity + controllerTemp[2] + ".java");
@@ -116,7 +116,7 @@ public class ContinueGenerate {
                             continue;
                         }
 
-                        if(GeneratorSqlmap.isQuery==false) {
+                        if(GeneratorSqlmap.SECOND_IS_QUERY==false) {
                             if (line.contains("insert(") || line.contains("updateByPrimaryKey(") || line.contains("*")) {
                                 continue;
                             }
@@ -392,7 +392,7 @@ public class ContinueGenerate {
 
                             }
 
-                            if (GeneratorSqlmap.isQuery){
+                            if (GeneratorSqlmap.SECOND_IS_QUERY){
                                 if (line.contains("<insert id=\"insertSelective\"")){
                                     insertSelectiveStart=true;
                                     continue;

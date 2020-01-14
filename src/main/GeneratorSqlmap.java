@@ -60,10 +60,25 @@ public class GeneratorSqlmap {
 				SECOND_GENERATE_TARGET_PARENT_PATH+"domain"+"\\",
 				SECOND_GENERATE_TARGET_PARENT_PATH+"serviceTest"+"\\"
 		};
+		//不存在 则新建文件夹
 		for (String path : SECOND_GENERATE_TARGET_PATH) {
 			File file = new File(path);
 			if (!file.exists()) {
 				file.mkdirs();
+			}
+		}
+		//清空文件夹
+		for (String path : SECOND_GENERATE_TARGET_PATH) {
+			File file = new File(path);
+			File[] files = file.listFiles();
+			if (files == null || files.length == 0) {
+				continue;
+			}
+			for (File f : files) {
+				if (f.isDirectory()) {
+					continue;
+				}
+				f.delete();
 			}
 		}
 	}
@@ -97,8 +112,8 @@ public class GeneratorSqlmap {
 	 * @param args
 	 * @throws Exception
 	 */
-	public static boolean isQuery=false;
 	public static void main(String[] args) throws Exception {
+
 		try {
 			//初步生成dao,实体
 			GeneratorSqlmap generatorSqlmap = new GeneratorSqlmap();
