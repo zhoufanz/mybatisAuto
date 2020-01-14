@@ -12,33 +12,6 @@ import java.util.Map;
 
 public class ContinueGenerate {
 
-    //指定生成service,controller的模板路径
-    private static String ftlPath = "/ftl1_mysql_for_mybatis";
-    private static boolean isQuery=false;
-
-    //输出路径    第三方的的发生大幅度的十分反对反对
-    private static String[] generateTargetPath = null;
-
-    static {
-        generateTargetPath = new String[]{
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\service\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\service\\impl\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\controller\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\dto\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\mapperJava\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\mapperXml\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\domain\\",
-                "D:\\generate_mybatisXXXXXXXXXXXXX\\serviceTest\\"
-
-        };
-        for (int i = 0; i < generateTargetPath.length; i++) {
-            File file = new File(generateTargetPath[i]);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-        }
-    }
-
     //生成service接口的模板,包名,类后缀
     private static String[] serviceTemp = {
             "service.ftl",
@@ -93,7 +66,7 @@ public class ContinueGenerate {
         templateData.put("package", packageName);
         templateData.put("entity", entity);
         templateData.put("lowerentity", entity.substring(0, 1).toLowerCase() + entity.substring(1));
-        freeMakerUtil.generateFile(ftlPath, templateName, templateData, outFileFullPath);
+        freeMakerUtil.generateFile(GeneratorSqlmap.SECOND_FTL_PARENT_PATH, templateName, templateData, outFileFullPath);
     }
 
     //基于已经生成的实体类继续生成service,serviceImpl,和controller dao
@@ -101,17 +74,17 @@ public class ContinueGenerate {
         List<String> models = StringUtil.getDirectoryClassNameListString(entityPath);
         for (String entity : models) {
             if(GeneratorSqlmap.isQuery){
-                create("query/service.ftl", serviceTemp[1], entity, generateTargetPath[0] + "" + entity + serviceTemp[2] + ".java");
-                create("query/serviceImpl.ftl", serviceImplTemp[1], entity, generateTargetPath[1] + entity + serviceImplTemp[2] + ".java");
-                create(controllerTemp[0], controllerTemp[1], entity, generateTargetPath[2] + entity + controllerTemp[2] + ".java");
-                create("query/serviceImplTest.ftl", serviceTestTemp[1], entity, generateTargetPath[7] + "" + entity + serviceTestTemp[2] + ".java");
+                create("query/service.ftl", serviceTemp[1], entity, GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[0] + "" + entity + serviceTemp[2] + ".java");
+                create("query/serviceImpl.ftl", serviceImplTemp[1], entity, GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[1] + entity + serviceImplTemp[2] + ".java");
+                create(controllerTemp[0], controllerTemp[1], entity, GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[2] + entity + controllerTemp[2] + ".java");
+                create("query/serviceImplTest.ftl", serviceTestTemp[1], entity, GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[7] + "" + entity + serviceTestTemp[2] + ".java");
             }else {
-                create(serviceTemp[0], serviceTemp[1], entity, generateTargetPath[0] + "" + entity + serviceTemp[2] + ".java");
-                create(serviceImplTemp[0], serviceImplTemp[1], entity, generateTargetPath[1] + entity + serviceImplTemp[2] + ".java");
-                create(controllerTemp[0], controllerTemp[1], entity, generateTargetPath[2] + entity + controllerTemp[2] + ".java");
-                create(serviceTestTemp[0], serviceTestTemp[1], entity, generateTargetPath[7] + "" + entity + serviceTestTemp[2] + ".java");
-//            create(daoImplTemp[0], daoImplTemp[1], entity, generateTargetPath[4] + "" + entity + daoImplTemp[2] + ".xml");
-//            create(serviceImplTempBase[0], serviceImplTempBase[1], entity, generateTargetPath[8] + entity + serviceImplTempBase[2] + ".java");
+                create(serviceTemp[0], serviceTemp[1], entity, GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[0] + "" + entity + serviceTemp[2] + ".java");
+                create(serviceImplTemp[0], serviceImplTemp[1], entity, GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[1] + entity + serviceImplTemp[2] + ".java");
+                create(controllerTemp[0], controllerTemp[1], entity, GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[2] + entity + controllerTemp[2] + ".java");
+                create(serviceTestTemp[0], serviceTestTemp[1], entity, GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[7] + "" + entity + serviceTestTemp[2] + ".java");
+//            create(daoImplTemp[0], daoImplTemp[1], entity, GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[4] + "" + entity + daoImplTemp[2] + ".xml");
+//            create(serviceImplTempBase[0], serviceImplTempBase[1], entity, GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[8] + entity + serviceImplTempBase[2] + ".java");
             }
 
         }
@@ -168,7 +141,7 @@ public class ContinueGenerate {
                     }
 
                     //生成新文件
-                    File newFile = new File(generateTargetPath[4] + "\\" + file.getName());
+                    File newFile = new File(GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[4] + "\\" + file.getName());
                     newFile.createNewFile();
 
                     FileWriter fileWriter = new FileWriter(newFile, true);
@@ -247,7 +220,7 @@ public class ContinueGenerate {
                     String voFileName = null;
                     int begin = file.getName().indexOf(".java");
                     voFileName = file.getName().substring(0, begin) + "Vo.java";
-                    File newFile = new File(generateTargetPath[3] + "\\" + voFileName);
+                    File newFile = new File(GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[3] + "\\" + voFileName);
                     newFile.createNewFile();
 
                     FileWriter fileWriter = new FileWriter(newFile, true);
@@ -322,7 +295,7 @@ public class ContinueGenerate {
                     String voFileName = null;
                     int begin = file.getName().indexOf(".java");
                     voFileName = file.getName().substring(0, begin) + ".java";
-                    File newFile = new File(generateTargetPath[6] + "\\" + voFileName);
+                    File newFile = new File(GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[6] + "\\" + voFileName);
                     newFile.createNewFile();
 
                     FileWriter fileWriter = new FileWriter(newFile, true);
@@ -461,7 +434,7 @@ public class ContinueGenerate {
 
                     }
 
-                    File newFile = new File(generateTargetPath[5] + "\\" + file.getName());
+                    File newFile = new File(GeneratorSqlmap.SECOND_GENERATE_TARGET_PATH[5] + "\\" + file.getName());
                     newFile.createNewFile();
 
                     FileWriter fileWriter = new FileWriter(newFile, true);

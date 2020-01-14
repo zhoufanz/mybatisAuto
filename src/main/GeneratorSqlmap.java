@@ -1,5 +1,6 @@
 package main;
 
+import org.apache.commons.io.FileUtils;
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
@@ -15,24 +16,57 @@ public class GeneratorSqlmap {
 	/**
 	 * 第一步生成的文件路径
 	 */
-	public static final String FIRST_COMPLITE_CODE_PATH ="/src/com/zf/";
+	private static final String FIRST_COMPLITE_CODE_PATH ="/src/com/zf/";
 
 	/**
 	 * 第一步生成的entity的绝对路径
 	 */
-	public static final String FIRST_COMPLITE_CODE_ENTITY_PATH =
+	private static final String FIRST_COMPLITE_CODE_ENTITY_PATH =
 			new File(System.getProperty("user.dir"), FIRST_COMPLITE_CODE_PATH + "domain").getAbsolutePath();
 
 	/**
 	 * 第一步生成的mapper的绝对路径
 	 */
-	public static final String FIRST_COMPLITE_CODE_MAPPER_PATH =
+	private static final String FIRST_COMPLITE_CODE_MAPPER_PATH =
 			new File(System.getProperty("user.dir"), FIRST_COMPLITE_CODE_PATH + "dao").getAbsolutePath();
 
 	/**
 	 * 主配置文件路径
 	 */
 	private static final String GENERATOR_CONFIG_XML_PATH = "generatorConfig.xml";
+
+	/**
+	 * 第二步使用的文件模板主路径
+	 */
+	public static String SECOND_FTL_PARENT_PATH = "/ftl1_mysql_for_mybatis";
+
+	/**
+	 * 第二步是否只生成查询文件
+	 */
+	public static boolean SECOND_IS_QUERY=false;
+
+	//第二步输出父路径
+	public static String SECOND_GENERATE_TARGET_PARENT_PATH = "D:\\generate_mybatisXXXXXXXXXXXXX\\";
+	public static String[] SECOND_GENERATE_TARGET_PATH = null;
+
+	static {
+		SECOND_GENERATE_TARGET_PATH = new String[]{
+				SECOND_GENERATE_TARGET_PARENT_PATH+"service"+"\\",
+				SECOND_GENERATE_TARGET_PARENT_PATH+"service\\impl"+"\\",
+				SECOND_GENERATE_TARGET_PARENT_PATH+"controller"+"\\",
+				SECOND_GENERATE_TARGET_PARENT_PATH+"dto"+"\\",
+				SECOND_GENERATE_TARGET_PARENT_PATH+"mapperJava"+"\\",
+				SECOND_GENERATE_TARGET_PARENT_PATH+"mapperXml"+"\\",
+				SECOND_GENERATE_TARGET_PARENT_PATH+"domain"+"\\",
+				SECOND_GENERATE_TARGET_PARENT_PATH+"serviceTest"+"\\"
+		};
+		for (String path : SECOND_GENERATE_TARGET_PATH) {
+			File file = new File(path);
+			if (!file.exists()) {
+				file.mkdirs();
+			}
+		}
+	}
 
 	//生成
 	public void generator() throws Exception {
@@ -86,6 +120,9 @@ public class GeneratorSqlmap {
 			System.out.println("service,controller,dao,newEntityWithColumn ,dto,entity ok了");
 			System.out.println("去D盘下generate_mybatisXXXXXXXXXXXXX下找代码.txt");
 			System.err.println("如果发现文件少了，基本都是因为配的数据源中没有相关的表");
+
+			FileUtils.deleteDirectory(new File(FIRST_COMPLITE_CODE_ENTITY_PATH));
+			FileUtils.deleteDirectory(new File(FIRST_COMPLITE_CODE_MAPPER_PATH));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
